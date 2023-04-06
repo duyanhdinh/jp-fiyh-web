@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# phpstorm
+.idea/
+
 # generated types
 .astro/
 
