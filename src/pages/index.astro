@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import DataCalc from "../components/vue/DataCalc.vue";
+import DataCalc from "../components/DataCalc.astro";
 import { dictionary } from '../locales/en/translation';
 ---
 
 <Layout title={dictionary.site.title} lang={dictionary.language}>
 	<main>
-	    <DataCalc client:load />
+	    <DataCalc />
 	</main>
 </Layout>

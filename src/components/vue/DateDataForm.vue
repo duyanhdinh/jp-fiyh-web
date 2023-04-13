@@ -50,7 +50,6 @@ const send = () => {
 
 <template>
     <div>
-        <div class="absolute z-10 inset-0 w-full h-full bg-white/80"></div>
         <div class="absolute z-20 w-full h-full flex flex-col justify-start items-start space-y-[10px]">
             <div class="w-full h-[27px] flex justify-center text-[20px] font-semibold">{{ $t('date_data_form.title') }}</div>
             <div class="w-full h-[27px] flex justify-center text-[16px] font-semibold">{{ $t('date_data_form.birth_date_time') }}</div>
