@@ -1,0 +1,14 @@
+{
+  "site": {
+    "name": "Fate in your hands",
+    "title": "Fate in your hands"
+  },
+  "date_data_form": {
+    "title": "Data Calculator",
+    "birth_date_time": "Birth (date & time)",
+    "min": "min",
+    "location": "Location",
+    "country": "Country",
+    "discover": "Discover"
+  }
+}
