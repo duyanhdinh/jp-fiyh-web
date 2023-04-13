@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { t } from "i18next";
+import { inject } from 'vue';
 
-const name: String = t('site.name');
+const i18n = inject('i18n');
+
+const name: String = i18n.site.name;
 </script>
 
 <template>

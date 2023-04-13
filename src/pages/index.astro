@@ -1,12 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import DataCalc from "../components/vue/DataCalc.vue";
-import i18next, { t, changeLanguage } from "i18next";
-
-changeLanguage("en");
+import { dictionary } from '../locales/en/translation';
 ---
 
-<Layout title={t("site.title")} lang={i18next.language}>
+<Layout title={dictionary.site.title} lang={dictionary.language}>
 	<main>
 	    <DataCalc client:load />
 	</main>

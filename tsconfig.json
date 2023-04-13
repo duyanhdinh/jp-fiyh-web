@@ -1,7 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "react"
   }
 }

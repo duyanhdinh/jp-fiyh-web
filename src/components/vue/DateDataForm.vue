@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
 import type { Ref } from 'vue'
-import { t } from "i18next";
 import Selected from "./common/Selected.vue";
 import {year, month, day, hour, min, monthNow, dayNow, yearNow} from '../../content/date-time.ts';
 import {country} from '../../content/country';
@@ -53,8 +52,8 @@ const send = () => {
     <div>
         <div class="absolute z-10 inset-0 w-full h-full bg-white/80"></div>
         <div class="absolute z-20 w-full h-full flex flex-col justify-start items-start space-y-[10px]">
-            <div class="w-full h-[27px] flex justify-center text-[20px] font-semibold">{{ t('date_data_form.title') }}</div>
-            <div class="w-full h-[27px] flex justify-center text-[16px] font-semibold">{{ t('date_data_form.birth_date_time') }}</div>
+            <div class="w-full h-[27px] flex justify-center text-[20px] font-semibold">{{ $t('date_data_form.title') }}</div>
+            <div class="w-full h-[27px] flex justify-center text-[16px] font-semibold">{{ $t('date_data_form.birth_date_time') }}</div>
             <div class="w-full h-auto mx-[16px] flex">
                 <Selected class="w-[64px] h-[32px] mr-[15px]"
                           :data="month"
@@ -78,16 +77,16 @@ const send = () => {
                           :modelValue=birthHour
                           @update:modelValue="newV => birthHour = newV"
                 />
-                <div class="flex items-center">{{ t('date_data_form.min') }}</div>
+                <div class="flex items-center">{{ $t('date_data_form.min') }}</div>
                 <Selected class="w-[64px] h-[32px]"
                           :data="min"
                           :modelValue=birthMin
                           @update:modelValue="newV => birthMin = newV"
                 />
             </div>
-            <div class="w-full h-[27px] flex justify-center text-[16px] font-semibold">{{ t('date_data_form.location') }}</div>
+            <div class="w-full h-[27px] flex justify-center text-[16px] font-semibold">{{ $t('date_data_form.location') }}</div>
             <div class="w-full h-auto px-[16px] flex justify-between">
-                <div class="w-auto text-[16px] font-semibold flex items-center">{{ t('date_data_form.country') }}</div>
+                <div class="w-auto text-[16px] font-semibold flex items-center">{{ $t('date_data_form.country') }}</div>
                 <Selected class="w-[150px] h-[32px]"
                           :data="listCountry"
                           :modelValue=birthCountry
@@ -107,7 +106,7 @@ const send = () => {
                         class="w-[100px] h-[32px] rounded bg-[#147FE9] text-white font-semibold text-[16px]
                         flex items-center justify-center hover:bg-[#00438a]"
                         @click="send"
-                >{{ t('date_data_form.discover') }}</div>
+                >{{ $t('date_data_form.discover') }}</div>
             </div>
         </div>
     </div>

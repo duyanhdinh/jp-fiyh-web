@@ -1,4 +1,5 @@
-{
+export const dictionary: object = {
+  language: 'en',
   "site": {
     "name": "Fate in your hands",
     "title": "Fate in your hands"
