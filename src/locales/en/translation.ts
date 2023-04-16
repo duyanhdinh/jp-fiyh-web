@@ -11,5 +11,19 @@ export const dictionary: object = {
     "location": "Location",
     "country": "Country",
     "discover": "Discover"
+  },
+  properties: {
+    '001': 'Physical',
+    '002': 'Love',
+    '003': 'Luck',
+    '004': 'Energy',
+    '005': 'Mental Health',
+    '006': 'Attraction',
+    '007': 'Wisdom',
+    '008': 'Control',
+    '009': 'Creativity',
+    '010': 'Influence',
+    '011': 'Charisma',
+    '012': 'Intuition',
   }
 }
