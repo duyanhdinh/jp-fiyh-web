@@ -1,23 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import DataCalc from "../components/DataCalc.astro";
-import ListProperties from "../components/vue/list/ListProperties.vue";
-import ListItemPromo from "../components/vue/list/ListItemPromo.vue";
-import { dictionary } from '../locales/en/translation';
+import Layout from "@/layouts/Layout.astro";
+import ListProperties from "@vue-components/list/ListProperties.vue";
+import ListItemPromo from "@vue-components/list/ListItemPromo.vue";
+import { dictionary } from "@dictionary";
 ---
 
 <Layout title={dictionary.site.title} lang={dictionary.language}>
-	<main>
-	    <DataCalc />
-	    <ListProperties class="mt-[16px]" />
-	    <ListItemPromo class="mt-[16px]" />
-	</main>
-	<div class="from-[#0000FF] to-[#000040] text-[#000080] bg-[#000080] from-[#FFE6F2] to-[#FF7FC2] text-[#FFB3DE] bg-[#FFB3DE] from-[#D1FF80] to-[#6BB800] text-[#A7FC00] bg-[#A7FC00] from-[#0040BF] to-[#80BFFF] text-[#0080FF] bg-[#0080FF]
-                from-[#FF80AF] to-[#BF005F] text-[#FF007F] bg-[#FF007F] from-[#FF4040] to-[#A60000] text-[#E62020] bg-[#E62020] from-[#FFF4FF] to-[#A69EBF] text-[#DCD0FF] bg-[#DCD0FF] from-[#C200FF] to-[#5C006B] text-[#8D029B] bg-[#8D029B]
-                from-[#7FBF73] to-[#0F3D18] text-[#1B7931] bg-[#1B7931] from-[#A53C3E] to-[#3F0709] text-[#670E10] bg-[#670E10] from-[#FFE2C2] to-[#BF6D2F] text-[#FF9B49] bg-[#FF9B49] from-[#FFFFB2] to-[#BFBF33] text-[#FFFF66] bg-[#FFFF66]
-                bg-[url('/assets/images/properties/pp_001.png')] bg-[url('/assets/images/properties/pp_002.png')] bg-[url('/assets/images/properties/pp_003.png')] bg-[url('/assets/images/properties/pp_004.png')]
-                bg-[url('/assets/images/properties/pp_005.png')] bg-[url('/assets/images/properties/pp_006.png')] bg-[url('/assets/images/properties/pp_007.png')] bg-[url('/assets/images/properties/pp_008.png')]
-                bg-[url('/assets/images/properties/pp_009.png')] bg-[url('/assets/images/properties/pp_010.png')] bg-[url('/assets/images/properties/pp_011.png')] bg-[url('/assets/images/properties/pp_012.png')]
-                shadow-[#000080] shadow-[#FFB3DE] shadow-[#A7FC00] shadow-[#0080FF] shadow-[#FF007F] shadow-[#E62020] shadow-[#DCD0FF] shadow-[#8D029B] shadow-[#1B7931] shadow-[#670E10] shadow-[#FF9B49] shadow-[#FFFF66]
-                text-[#ffffff] text-[#000000]" hidden></div>
+  <ListProperties class="mt-[16px]" />
+  <ListItemPromo class="mt-[16px]" />
 </Layout>

@@ -1,4 +1,4 @@
 export interface SelectObject {
-    value: String | Number;
-    title: String;
+  value: String | Number;
+  title: String;
 }

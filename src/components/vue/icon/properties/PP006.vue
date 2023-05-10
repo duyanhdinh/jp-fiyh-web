@@ -1,21 +1,25 @@
 <script lang="ts" setup>
 interface Props {
-    color?: string,
+  color?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
-    color: '#000000',
-})
+  color: "#000000",
+});
 </script>
 
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 440 422"
-         preserveAspectRatio="xMidYMid meet"
-         :fill=color
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 440 422"
+    preserveAspectRatio="xMidYMid meet"
+    :fill="color"
+  >
+    <g
+      transform="translate(0.000000,422.000000) scale(0.100000,-0.100000)"
+      stroke="none"
     >
-
-        <g transform="translate(0.000000,422.000000) scale(0.100000,-0.100000)" stroke="none">
-            <path d="M1002 4138 c-115 -188 -316 -566 -390 -733 -131 -297 -202 -574 -202
+      <path
+        d="M1002 4138 c-115 -188 -316 -566 -390 -733 -131 -297 -202 -574 -202
 -788 0 -118 22 -303 41 -350 11 -25 8 -33 -19 -70 -157 -209 -379 -583 -360
 -602 4 -4 67 -20 141 -35 426 -89 778 -241 1167 -503 217 -146 400 -337 541
 -565 l32 -53 -30 -32 c-89 -95 -81 -239 19 -334 49 -47 75 -53 223 -53 182 0
@@ -35,11 +39,10 @@ const props = withDefaults(defineProps<Props>(), {
 34 89 42 86 7 -3 13 -11 13 -19z m-1922 -1930 c44 -33 74 -101 68 -154 -12
 -93 -84 -160 -171 -160 -176 0 -224 234 -67 320 47 26 130 22 170 -6z m1551
 12 c48 -25 84 -83 89 -143 6 -67 -10 -104 -61 -148 -36 -31 -47 -35 -95 -35
--69 0 -113 26 -148 86 -66 112 11 254 138 254 27 0 62 -6 77 -14z"/>
-        </g>
-    </svg>
+-69 0 -113 26 -148 86 -66 112 11 254 138 254 27 0 62 -6 77 -14z"
+      />
+    </g>
+  </svg>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

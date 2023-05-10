@@ -1,10 +1,10 @@
-import type { App } from 'vue';
-import { createPinia } from 'pinia';
-import i18nPlugin from './plugins/i18n';
-import { dictionary } from '../locales/en/translation';
+import type { App } from "vue";
+import { createPinia } from "pinia";
+import i18nPlugin from "@vue-plugins/i18n.vue-plugin";
+import { dictionary } from "@dictionary";
+
+const pinia = createPinia();
 
 export default (app: App) => {
-    app
-        .use(createPinia)
-        .use(i18nPlugin, dictionary);
-}
+  app.use(pinia).use(i18nPlugin, dictionary);
+};

@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import tailwind from "@astrojs/tailwind";
 import vue from "@astrojs/vue";
@@ -11,8 +11,8 @@ export default defineConfig({
   integrations: [
     tailwind(),
     vue({
-      appEntrypoint: '/src/vue/main'
+      appEntrypoint: "/src/vue/main",
     }),
-    sitemap()
-  ]
+    sitemap(),
+  ],
 });

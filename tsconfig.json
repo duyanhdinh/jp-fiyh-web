@@ -1,5 +1,18 @@
 {
   "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@stores/*": ["src/stores/*"],
+      "@vue-stores/*": ["src/vue/stores/*"],
+      "@components/*": ["src/components/*"],
+      "@vue-components/*": ["src/components/vue/*"],
+      "@vue-plugins/*": ["src/vue/plugins/*"],
+      "@assets/*": ["src/assets/*"],
+      "@helpers/*": ["src/helpers/*"],
+      // fixed
+      "@dictionary": ["src/locales/en/translation"]
+    }
   }
 }

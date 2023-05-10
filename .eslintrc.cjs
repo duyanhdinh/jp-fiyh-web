@@ -1,14 +1,16 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   // ...
   extends: [
     // ...
     "plugin:astro/recommended",
+    "plugin:vue/vue3-recommended",
   ],
   // ...
   overrides: [
     {
       // Define the configuration for `.astro` file.
-      files: ["*.astro", "*.tsx"],
+      files: ["*.astro", "*.ts"],
       // Allows Astro components to be parsed.
       parser: "astro-eslint-parser",
       // Parse the script in `.astro` as TypeScript by adding the following configuration.
@@ -24,4 +26,4 @@ module.exports = {
     },
     // ...
   ],
-}
+};
