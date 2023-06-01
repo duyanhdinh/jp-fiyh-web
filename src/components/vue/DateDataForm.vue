@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import Selected from "@vue-components/common/Selected.vue";
 import { year, month, day, hour, min } from "@/_content/date-time";
@@ -15,7 +15,7 @@ const {
   birthCity,
 } = storeToRefs(birthStore);
 const canSend = computed<boolean>(() => birthStore.isDataFilled);
-const hrefResult = computed<boolean>(() => birthStore.hrefResult);
+const hrefResult = computed<string>(() => birthStore.hrefResult);
 
 const send = async (e) => {
   if (!canSend.value) e.preventDefault();

@@ -1,13 +1,10 @@
-<script lang="ts" setup>
-import { inject } from "vue";
+---
+import { dictionary } from "@dictionary";
+import HeaderMenu from "@vue-components/HeaderMenu.vue";
+---
 
-const i18n = inject("i18n");
-
-const name: String = i18n.site.name;
-</script>
-
-<template>
-  <div class="w-full h-[80px] flex items-center">
+<div class="w-full h-[80px] flex items-center justify-between">
+  <div class="h-full flex items-center">
     <a
       href="/"
       class="w-[60px] h-[60px] rounded-lg bg-gradient-to-r from-[#CD5DCA] to-[#4180F4] cursor-pointer"
@@ -17,9 +14,10 @@ const name: String = i18n.site.name;
     <div
       class="ml-[60px] text-[28px] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#4180F4] to-[#CD5DCA]"
     >
-      {{ name }}
+      {dictionary.site.name}
     </div>
   </div>
-</template>
-
-<style scoped></style>
+  <div class="h-full flex items-center justify-end">
+    <HeaderMenu client:only="vue" />
+  </div>
+</div>

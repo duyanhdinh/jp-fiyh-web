@@ -1,0 +1,7 @@
+---
+import RecommendSlide from "@vue-components/ads/RecommendSlice.vue";
+
+const { type, category, slug } = Astro.props;
+
+---
+<RecommendSlide client:only="vue" type={type} category={category} slug={slug} />

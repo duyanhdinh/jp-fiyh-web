@@ -1,0 +1,24 @@
+---
+import { getArticle } from "@/api/article/get.api";
+import PageNotFound from "@astro-components/PageNotFound.astro";
+import VueArticleContent from "@vue-components/pages/article/VueArticleContent.vue";
+import LayoutArticle from "@/layouts/LayoutArticle.astro";
+import SideAds from "@astro-components/layouts/SideAds.astro";
+
+const { type, category, slug } = Astro.params;
+
+const response = await getArticle({ type, category, slug });
+const statusCode = response.statusCode;
+const data = response?.data;
+---
+
+{statusCode !== 200 && <PageNotFound />}
+
+{
+  statusCode === 200 && (
+    <LayoutArticle>
+      <VueArticleContent content={data.contentData} />
+      <SideAds slot="side-ads" type={type} category={category} slug={slug} >hi</SideAds>
+    </LayoutArticle>
+  )
+}

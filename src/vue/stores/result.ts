@@ -9,7 +9,7 @@ import type { RemovableRef } from "@vueuse/core";
 export const useResultStore = defineStore("result", () => {
   const birth = useBirthStore();
   // const score: RemovableRef<object> = useSessionStorage('scoreFate', {});
-  const score: Ref<object> = ref(null);
+  const score: Ref<object | null> = ref(null);
   const astrology: RemovableRef<object> = useSessionStorage(
     "astrologyFate",
     {}
@@ -17,7 +17,7 @@ export const useResultStore = defineStore("result", () => {
   const energy: RemovableRef<object> = useSessionStorage("energyFate", {});
   const dataReady: Ref = ref(false);
 
-  const getResult = async (request) =>
+  const apiDiscoverGetResult = async (request: any) =>
     http
       .getDiscoverResult({
         year: 2022,
@@ -32,7 +32,7 @@ export const useResultStore = defineStore("result", () => {
       .then(({ data }) => data);
 
   return {
-    getResult,
+    apiDiscoverGetResult,
     score,
     astrology,
     energy,

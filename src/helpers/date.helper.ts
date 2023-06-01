@@ -1,10 +1,8 @@
-import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
-
 const CIRCLE_TIME: number = 3942000000;
 
 export const getLocaleDateString = (
   date: Date,
-  options: DateTimeFormatOptions = {}
+  options: Intl.DateTimeFormatOptions = {}
 ): string =>
   date.toLocaleDateString("en-US", {
     weekday: "long",
@@ -25,7 +23,7 @@ export const dateMMDDYYYY = (date: Date, slash = "/"): string =>
 
 export const dateFormatStringEn = (
   date: Date,
-  options: DateTimeFormatOptions
+  options: Intl.DateTimeFormatOptions
 ): string =>
   new Date(date).toLocaleDateString("en-US", {
     year: "numeric",

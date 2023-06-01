@@ -4,6 +4,13 @@ export const dictionary: object = {
     name: "Fate in your hands",
     title: "Fate in your hands",
   },
+  header: {
+    menu: {
+      articles: {
+        title: "articles",
+      },
+    },
+  },
   date_data_form: {
     title: "Data Calculator",
     birth_date_time: "Birth (date & time)",
@@ -39,9 +46,25 @@ export const dictionary: object = {
     },
     energy: {
       title: "III. Energies Matrix Destiny Report",
-      h2_title: ({ date, energy, energy_name }) =>
+      h2_title: ({
+        date,
+        energy,
+        energy_name,
+      }: {
+        date: string;
+        energy: string;
+        energy_name: string;
+      }) =>
         `From ${date} you are under the influence of energy level ${energy}, represented by ${energy_name}.`,
-      h2_title_raw: ({ date, energy, energy_name }) =>
+      h2_title_raw: ({
+        date,
+        energy,
+        energy_name,
+      }: {
+        date: string;
+        energy: string;
+        energy_name: string;
+      }) =>
         `From <span class="italic font-medium">${date}</span> you are under the influence of energy level <span class="font-medium text-red-600">${energy}</span>, represented by <span class="font-bold">${energy_name}</span>.`,
     },
   },

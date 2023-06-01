@@ -54,7 +54,7 @@ const yearGenerator = (): SelectObject[] => {
   let minYear: Number = 1900;
   let maxYear: Number = 2050;
 
-  for (let i: number = minYear; i <= maxYear; i++) {
+  for (let i: any = minYear; i <= maxYear; i++) {
     year.push({ value: i, title: i.toString() });
   }
 
@@ -68,7 +68,7 @@ const hourGenerator = (): SelectObject[] => {
   let minHour: Number = 0;
   let maxHour: Number = 23;
 
-  for (let i: number = minHour; i <= maxHour; i++) {
+  for (let i: any = minHour; i <= maxHour; i++) {
     hour.push({
       value: i,
       title:

@@ -7,42 +7,43 @@ import { objToArrSelectObject } from "@/helpers/type";
 import { country } from "@/_content/country";
 import { useSessionStorage } from "@vueuse/core";
 import type { RemovableRef } from "@vueuse/core";
+import { BIRTH_STORE } from "@/constant/sessions-key.constant";
 
 export const useBirthStore = defineStore("birth", () => {
   const birthMonth: RemovableRef<string | number> = useSessionStorage(
-    "birthMonth",
+    BIRTH_STORE.MONTH,
     monthNow
   );
   const birthDay: RemovableRef<string | number> = useSessionStorage(
-    "birthDay",
+    BIRTH_STORE.DAY,
     dayNow
   );
   const birthYear: RemovableRef<string | number> = useSessionStorage(
-    "birthYear",
+    BIRTH_STORE.YEAR,
     yearNow
   );
   const birthHour: RemovableRef<string | number> = useSessionStorage(
-    "birthHour",
+    BIRTH_STORE.HOUR,
     ""
   );
   const birthMin: RemovableRef<string | number> = useSessionStorage(
-    "birthMin",
+    BIRTH_STORE.MIN,
     ""
   );
   const birthCountry: RemovableRef<string> = useSessionStorage(
-    "birthCountry",
+    BIRTH_STORE.CO,
     "US"
   );
   const birthCity: RemovableRef<string | number> = useSessionStorage(
-    "birthCity",
+    BIRTH_STORE.CITY,
     ""
   );
   const birthLat: RemovableRef<string | number | null> = useSessionStorage(
-    "birthLat",
+    BIRTH_STORE.LAT,
     null
   );
   const birthLng: RemovableRef<string | number | null> = useSessionStorage(
-    "birthLng",
+    BIRTH_STORE.LNG,
     null
   );
   const listCountry = sortArrByKeyString(
@@ -54,13 +55,15 @@ export const useBirthStore = defineStore("birth", () => {
   );
   const isDataFilled = computed<boolean>(
     () =>
-      birthMonth.value &&
-      birthDay.value &&
-      birthYear.value &&
-      birthHour.value !== "" &&
-      birthMin.value !== "" &&
-      birthLat.value !== null &&
-      birthLng.value !== null
+      !!(
+        birthMonth.value &&
+        birthDay.value &&
+        birthYear.value &&
+        birthHour.value !== "" &&
+        birthMin.value !== "" &&
+        birthLat.value !== null &&
+        birthLng.value !== null
+      )
   );
 
   const hrefResult = computed<string>(
@@ -81,7 +84,8 @@ export const useBirthStore = defineStore("birth", () => {
 
   const getBirthGeo = (cityId: number): void => {
     birthCity.value = cityId;
-    let city: object = geoCity[birthCountry.value].find(
+    let city: { lat: any; lng: any } = geoCity[birthCountry.value].find(
+      // @ts-ignore
       ({ value }) => value === cityId
     );
     birthLat.value = city.lat;

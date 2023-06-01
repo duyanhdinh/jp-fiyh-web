@@ -1,5 +1,9 @@
-export const sortArrByKeyString = (arr, key: string, reverse: 1 | -1 = 1) =>
-  arr.sort((a, b): number => {
+export const sortArrByKeyString = (
+  arr: any,
+  key: string,
+  reverse: 1 | -1 = 1
+) =>
+  arr.sort((a: any, b: any): number => {
     const nameA = a[key].toUpperCase(); // ignore upper and lowercase
     const nameB = b[key].toUpperCase(); // ignore upper and lowercase
     if (nameA < nameB) {

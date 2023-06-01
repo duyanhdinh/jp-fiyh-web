@@ -1,6 +1,8 @@
 ---
-import Header from "@vue-components/Header.vue";
-import DataCalc from "@components/DataCalc.astro";
+import "floating-vue/dist/style.css";
+import "vueperslides/dist/vueperslides.css";
+import Header from "@astro-components/Header.astro";
+import DataCalc from "@astro-components/layouts/DataCalc.astro";
 export interface Props {
   title: string;
   lang: string;
@@ -18,7 +20,7 @@ const { title, lang } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="w-screen h-auto min-h-screen flex justify-center bg-[#FFFFFF]">
+  <body class="w-screen h-auto min-h-screen flex justify-center bg-zinc-200">
     <div class="w-[1164px]">
       <Header />
       <main>
@@ -42,6 +44,8 @@ const { title, lang } = Astro.props;
       #da62c4 30%,
       white 60%
     );
+    scrollbar-width: thin;
+    scrollbar-color: rgb(84, 136, 202) #f5f5f5;
   }
   html {
     font-family: system-ui, sans-serif;
@@ -50,5 +54,28 @@ const { title, lang } = Astro.props;
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right top,
+      color-stop(0.44, #4180f4),
+      color-stop(0.72, #cd5dca)
+    );
   }
 </style>

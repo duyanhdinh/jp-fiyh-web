@@ -1,0 +1,21 @@
+---
+import { articlesListHandles } from "../../../astro/scripts/articles/list";
+import LayoutArticle from "@/layouts/LayoutArticle.astro";
+import ArticlesList from "@astro-components/pages/articles/ArticlesList.astro";
+
+const { f1 } = Astro.params;
+const type = "F1";
+const { data, parentUriList, parentUriArticles, resource } =
+  await articlesListHandles(Astro, { type, f1 });
+
+if (data === null) return Astro.redirect("/articles");
+---
+
+<LayoutArticle>
+  <ArticlesList
+    data={data}
+    parentUriList={parentUriList}
+    parentUriArticles={parentUriArticles}
+    resource={resource}
+  />
+</LayoutArticle>
