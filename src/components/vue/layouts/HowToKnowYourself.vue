@@ -13,9 +13,9 @@
       the sublunar world and affects destinies of individuals.
     </div>
     <div class="text-justify">
-      <span class="font-semibold">Matrix of Destiny</span> is a numerological
-      calculation that helps you find out your way and shows how your life will
-      unfold based on your birth date.
+      <span class="font-semibold">Energies/Matrix of Destiny</span> is a
+      numerological calculation that helps you find out your way and shows how
+      your life will unfold based on your birth date.
     </div>
     <div class="text-justify">
       Based on that we can understand more about your strengths, weaknesses,

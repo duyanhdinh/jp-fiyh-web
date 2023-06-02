@@ -15,5 +15,5 @@ export const MENU_STORE = {
 };
 
 export const ADS_STORE = {
-  ITEMS: 'ADS_STORE-ITEM'
-}
+  ITEMS: "ADS_STORE-ITEM",
+};

@@ -104,6 +104,7 @@ const send = async (e) => {
           class="w-[100px] h-[32px] rounded bg-[#147FE9] text-white font-semibold text-[16px] flex items-center justify-center hover:bg-[#00438a]"
           :href="hrefResult"
           @click="send"
+          title="Fill all input above to discover"
           >{{ $t("date_data_form.discover") }}</a
         >
       </div>

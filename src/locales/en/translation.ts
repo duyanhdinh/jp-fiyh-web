@@ -3,6 +3,12 @@ export const dictionary: object = {
   site: {
     name: "Fate in your hands",
     title: "Fate in your hands",
+    recommend_ads: {
+      title: "Recommend for you",
+    },
+  },
+  menu_list: {
+    resource_for: "Resource for",
   },
   header: {
     menu: {

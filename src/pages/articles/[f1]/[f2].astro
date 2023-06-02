@@ -1,7 +1,9 @@
 ---
-import { articlesListHandles } from "../../../astro/scripts/articles/list";
+import { articlesListHandles } from "@/astro/scripts/articles/list";
 import LayoutArticle from "@/layouts/LayoutArticle.astro";
 import ArticlesList from "@astro-components/pages/articles/ArticlesList.astro";
+import SideAds from "@astro-components/layouts/SideAds.astro";
+import { dictionary } from "../../../locales/en/translation";
 
 const { f1, f2 } = Astro.params;
 const type = "F2";
@@ -11,11 +13,12 @@ const { data, parentUriList, parentUriArticles, resource } =
 if (data === null) return Astro.redirect("/articles");
 ---
 
-<LayoutArticle>
+<LayoutArticle title={dictionary.site.title} lang={dictionary.language}>
   <ArticlesList
     data={data}
     parentUriList={parentUriList}
     parentUriArticles={parentUriArticles}
     resource={resource}
   />
+  <SideAds slot="side-ads" />
 </LayoutArticle>

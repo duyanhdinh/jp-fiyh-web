@@ -68,7 +68,7 @@ export const useBirthStore = defineStore("birth", () => {
 
   const hrefResult = computed<string>(
     () =>
-      `result?y=${birthYear.value}&m=${birthMonth.value}&d=${birthDay.value}&h=${birthHour.value}&min=${birthMin.value}&co=${birthCountry.value}&ci=${birthCity.value}&lat=${birthLat.value}&lng=${birthLng.value}`
+      `/result?y=${birthYear.value}&m=${birthMonth.value}&d=${birthDay.value}&h=${birthHour.value}&min=${birthMin.value}&co=${birthCountry.value}&ci=${birthCity.value}&lat=${birthLat.value}&lng=${birthLng.value}`
   );
 
   const resetCityValue = (): void => {

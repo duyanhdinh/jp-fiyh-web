@@ -12,5 +12,5 @@ export const ARTICLE = {
   GET_ARTICLE: BASE_API_ARTICLE,
 };
 export const URI_ITEM = {
-  GET_RECOMMEND: BASE_API_ITEM + '/recommend',
+  GET_RECOMMEND: BASE_API_ITEM + "/recommend",
 };
