@@ -1,12 +1,29 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 import tailwind from "@astrojs/tailwind";
-
 import vue from "@astrojs/vue";
+import sitemap from "@astrojs/sitemap";
+import {generalUrlSiteMap} from "./sitemap/genera-sitemap-ssr";
+
+const customPages = generalUrlSiteMap();
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    ssr: {
+      noExternal: ['floating-vue'],
+    }
+  },
   output: "server",
   adapter: cloudflare(),
-  integrations: [tailwind(), vue()]
+  site: 'https://fateinyourhands.com',
+  integrations: [
+    tailwind(),
+    vue({
+      appEntrypoint: "/src/vue/main",
+    }),
+    sitemap({
+      customPages: customPages
+    }),
+  ],
 });

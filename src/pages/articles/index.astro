@@ -1,0 +1,20 @@
+---
+import { articlesListHandles } from "@/astro/scripts/articles/list";
+import LayoutArticle from "@/layouts/LayoutArticle.astro";
+import ArticlesList from "@astro-components/pages/articles/ArticlesList.astro";
+import SideAds from "@astro-components/layouts/SideAds.astro";
+import { dictionary } from "../../locales/en/translation";
+
+const { data, parentUriList, parentUriArticles, resource } =
+  await articlesListHandles(Astro, {});
+---
+
+<LayoutArticle title={dictionary.site.title} lang={dictionary.language}>
+  <ArticlesList
+    data={data}
+    parentUriList={parentUriList}
+    parentUriArticles={parentUriArticles}
+    resource={resource}
+  />
+  <SideAds slot="side-ads" />
+</LayoutArticle>

@@ -1,0 +1,23 @@
+---
+import { dictionary } from "@dictionary";
+import HeaderMenu from "@vue-components/layouts/HeaderMenu.vue";
+---
+
+<div class="w-full h-[80px] flex items-center justify-between">
+  <div class="h-full flex items-center">
+    <a
+      href="/"
+      class="w-[60px] h-[60px] rounded-lg bg-gradient-to-r from-[#CD5DCA] to-[#4180F4] cursor-pointer"
+    >
+      <img src="/assets/images/logo/logo_64x64.png" :alt="name" />
+    </a>
+    <div
+      class="ml-[60px] text-[28px] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#4180F4] to-[#CD5DCA]"
+    >
+      {dictionary.site.name}
+    </div>
+  </div>
+  <div class="h-full flex items-center justify-end">
+    <HeaderMenu client:only="vue" />
+  </div>
+</div>

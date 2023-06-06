@@ -1,7 +1,19 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "@vue/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "react"
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@stores/*": ["src/stores/*"],
+      "@vue-stores/*": ["src/vue/stores/*"],
+      "@astro-components/*": ["src/components/astro/*"],
+      "@vue-components/*": ["src/components/vue/*"],
+      "@components/*": ["src/components/*"],
+      "@vue-plugins/*": ["src/vue/plugins/*"],
+      "@assets/*": ["src/assets/*"],
+      "@helpers/*": ["src/helpers/*"],
+      // fixed
+      "@dictionary": ["src/locales/en/translation"]
+    }
   }
 }

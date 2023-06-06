@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ResultSummary from "@vue-components/pages/result/ResultSummary.vue";
+import ResultAstro from "@vue-components/pages/result/ResultAstro.vue";
+import ResultEnergy from "@vue-components/pages/result/ResultEnergy.vue";
+import { dictionary } from "@dictionary";
+import { apiDiscoverGetResult } from "../../api/discover/discover.api";
+import { getLocaleDateString } from "@helpers/date.helper";
+
+const request = {
+  year: Astro.url.searchParams.get("y"),
+  month: Astro.url.searchParams.get("m"),
+  day: Astro.url.searchParams.get("d"),
+  lat: Astro.url.searchParams.get("lat"),
+  lng: Astro.url.searchParams.get("lng"),
+  hour: Astro.url.searchParams.get("h"),
+  min: Astro.url.searchParams.get("min"),
+  co: Astro.url.searchParams.get("co"),
+};
+
+const data = await apiDiscoverGetResult(request);
+
+if (data === undefined) return Astro.redirect("/");
+
+const date = getLocaleDateString(new Date(data.birth_time), {
+  timeZone: data.birth_time_zone,
+});
+---
+
+<Layout title={dictionary.site.title} lang={dictionary.language}>
+  <h1 class="w-full text-center font-bold text-[20px] mt-[16px]">
+    {dictionary.result.title(date)}
+  </h1>
+  <ResultSummary
+    class="mt-[16px]"
+    client:load
+    score={data.score}
+    data={data}
+    request={request}
+  />
+  <ResultAstro class="mt-[16px]" client:load data={data} />
+  <ResultEnergy class="mt-[16px]" client:load energy={data.energy} />
+</Layout>

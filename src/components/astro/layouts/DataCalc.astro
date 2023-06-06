@@ -1,0 +1,17 @@
+---
+import DateDataForm from "../../vue/common/DateDataForm.vue";
+import HowToKnowYourself from "../../vue/layouts/HowToKnowYourself.vue";
+import HowToImproveYourself from "../../vue/layouts/HowToImproveYourself.vue";
+---
+
+<div
+  class="relative flex w-full h-[320px] rounded-lg shadow-xl bg-gradient-to-r from-[#CD5DCA]/40 to-[#4180F4]/40"
+>
+  <HowToKnowYourself class="relative w-[456px] h-full" />
+  <div
+    class="relative w-[252px] h-full border-l-2 border-r-2 border-indigo-500"
+  >
+    <DateDataForm client:only="vue" />
+  </div>
+  <HowToImproveYourself class="relative w-[456px] h-full" />
+</div>

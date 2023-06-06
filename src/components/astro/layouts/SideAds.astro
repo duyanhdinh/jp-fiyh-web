@@ -1,0 +1,17 @@
+---
+import RecommendSlide from "@vue-components/ads/RecommendSlice.vue";
+import DataFormSideAds from "@vue-components/ads/DataFormSideAds.vue";
+
+const { type, category, slug } = Astro.props;
+---
+
+<div
+  class="mb-[16px] w-full h-[400px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify"
+>
+  <RecommendSlide client:only="vue" category={category} slug={slug} />
+</div>
+<div
+  class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/40 to-[#4180F4]/40"
+>
+  <DataFormSideAds client:only="vue" />
+</div>
