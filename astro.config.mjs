@@ -11,7 +11,7 @@ const customPages = generalUrlSiteMap();
 export default defineConfig({
   vite: {
     ssr: {
-      noExternal: true,
+      noExternal: ['floating-vue'],
     }
   },
   output: "server",
