@@ -1,5 +1,5 @@
 # Base image
-FROM node:18
+FROM node:18 AS build
 
 # Create app directory
 WORKDIR /app
@@ -14,10 +14,10 @@ RUN yarn install
 COPY . .
 
 # Creates a "dist" folder with the production build
-RUN npm run build
+RUN npm run build -- --mode custom
 
 # Start the server using the production build
-ENV HOST=0.0.0.0
-ENV PORT=3000
+FROM nginx:alpine AS runtime
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 3000
-CMD node ./dist/server/entry.mjs
