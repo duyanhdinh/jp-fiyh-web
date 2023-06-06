@@ -9,11 +9,11 @@ const customPages = generalUrlSiteMap();
 
 // https://astro.build/config
 export default defineConfig({
-  // vite: {
-  //   ssr: {
-  //     noExternal: ['floating-vue'],
-  //   }
-  // },
+  vite: {
+    ssr: {
+      noExternal: true,
+    }
+  },
   output: "server",
   adapter: node({
     mode: 'standalone'
