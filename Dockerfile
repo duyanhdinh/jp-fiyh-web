@@ -17,4 +17,5 @@ COPY . .
 RUN npm run build
 
 # Start the server using the production build
-CMD [ "node", "dist/main" ]
+EXPOSE 3000
+CMD node ./dist/server/entry.mjs
