@@ -18,6 +18,6 @@ RUN npm run build -- --mode custom
 
 # Start the server using the production build
 FROM nginx:alpine AS runtime
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 3000
