@@ -14,10 +14,7 @@ RUN yarn install
 COPY . .
 
 # Creates a "dist" folder with the production build
-RUN npm run build -- --mode custom
+RUN npm run build
 
 # Start the server using the production build
-FROM nginx:alpine AS runtime
-COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 3000
+CMD [ "node", "dist/main" ]
