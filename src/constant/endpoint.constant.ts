@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.PUBLIC_API_HOST;
+const BASE_URL = "api";
 const BASE_API = BASE_URL + "/v1/";
 const BASE_API_ARTICLE = BASE_API + "article";
 const BASE_API_ITEM = BASE_API + "item";
