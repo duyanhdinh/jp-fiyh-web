@@ -1,4 +1,4 @@
-#name: Build and push docker image and request deploy to EB
+name: Build and push docker image and request deploy to EB
 on:
   push:
     branches:
@@ -7,30 +7,30 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-#      # Checkout
-#      - name: Checkout Repo
-#        uses: actions/checkout@master
-#
-#      # Build and push image
-#      - name: Login to DockerHub
-#        uses: docker/login-action@master
-#        with:
-#          username: ${{ secrets.DOCKERHUB_USERNAME }}
-#          password: ${{ secrets.DOCKERHUB_TOKEN }}
-#
-#      - name: Build docker image
-#        run: >
-#          docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:latest
-#          -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:1.${{ github.run_number }}.0
-#
-#      - name: Push docker image
-#        run: |
-#          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }} --all-tags
-#
-#      # Request deploy eb
-#      - name: Repository Dispatch
-#        uses: peter-evans/repository-dispatch@v2
-#        with:
-#          token: ${{ secrets.PAT }}
-#          repository: ${{ secrets.DEPLOY_EB_REPO }}
-#          event-type: build_application_fiyh
+      # Checkout
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      # Build and push image
+      - name: Login to DockerHub
+        uses: docker/login-action@master
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build docker image
+        run: >
+          docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:latest
+          -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:1.${{ github.run_number }}.0
+
+      - name: Push docker image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }} --all-tags
+
+      # Request deploy eb
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ secrets.DEPLOY_EB_REPO }}
+          event-type: build_application_fiyh
