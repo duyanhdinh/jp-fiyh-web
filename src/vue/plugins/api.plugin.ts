@@ -1,5 +1,4 @@
 import { httpBase } from "@vue-plugins/http.plugin";
+import { DISCOVER_RESULT } from "@/constant/endpoint.constant";
 
-const DISCOVER_RESULT = "/v1/discovery/result";
-
-export const getDiscoverResult = (data) => httpBase.post(DISCOVER_RESULT, data);
+export const getDiscoverResult = (data: any) => httpBase.post(DISCOVER_RESULT, data);

@@ -1,7 +1,10 @@
-import { DISCOVER_RESULT } from "@/constant/endpoint.constant";
+import { DISCOVER_RESULT, FETCH_API_HOST } from "@/constant/endpoint.constant";
 
-export const apiDiscoverGetResult = async (request: any) => {
-  const response = await fetch(DISCOVER_RESULT, {
+export const apiDiscoverGetResult = async (
+  request: any,
+  host: string = FETCH_API_HOST
+) => {
+  const response = await fetch(host + DISCOVER_RESULT, {
     method: "post",
     headers: {
       Accept: "application/json",

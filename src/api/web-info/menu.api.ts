@@ -1,7 +1,7 @@
-import { GET_MENU } from "@/constant/endpoint.constant";
+import { FETCH_API_HOST, GET_MENU } from "@/constant/endpoint.constant";
 
-export const apiWebInfoGetMenu = async () => {
-  const response = await fetch(GET_MENU, {
+export const apiWebInfoGetMenu = async (host: string = FETCH_API_HOST) => {
+  const response = await fetch(`${host}${GET_MENU}`, {
     method: "get",
     headers: {
       Accept: "application/json",

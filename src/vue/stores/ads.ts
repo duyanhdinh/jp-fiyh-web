@@ -6,6 +6,7 @@ import { ADS_STORE } from "@/constant/sessions-key.constant";
 import { getItemsRecommend } from "@/api/item/index.api";
 import type { Ref } from "vue";
 import { ref } from "vue";
+import { PUBLIC_API_HOST } from "@/constant/endpoint.constant";
 
 export const useAdsStore = defineStore("ads", () => {
   const itemsAdsLocal: RemovableRef<object[]> = useLocalStorage(
@@ -20,7 +21,7 @@ export const useAdsStore = defineStore("ads", () => {
     slug?: string;
     limit?: number;
   }) => {
-    const response = await getItemsRecommend(request);
+    const response = await getItemsRecommend(request, PUBLIC_API_HOST);
 
     if (
       parseInt(response.statusCode) === HTTP_STATUS_CODE.SUCCESS &&
