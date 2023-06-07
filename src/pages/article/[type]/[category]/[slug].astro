@@ -26,7 +26,7 @@ if (statusCode === HTTP_STATUS_CODE.SUCCESS) {
     },
     {
       name: "canonical",
-      content: Astro.url.href,
+      content: `${import.meta.env.MAIN_HOST}${Astro.url.pathname}`,
     },
   ];
 }
