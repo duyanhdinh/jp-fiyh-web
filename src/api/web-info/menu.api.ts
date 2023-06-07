@@ -1,8 +1,6 @@
 import { FETCH_API_HOST, GET_MENU } from "@/constant/endpoint.constant";
 
 export const apiWebInfoGetMenu = async (host: string = FETCH_API_HOST) => {
-  console.log(`${host}${GET_MENU}`)
-  console.dir(import.meta.env)
   const response = await fetch(`${host}${GET_MENU}`, {
     method: "get",
     headers: {

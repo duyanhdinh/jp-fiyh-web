@@ -1,5 +1,5 @@
 export const FETCH_API_HOST = import.meta.env.FETCH_API_HOST;
-export const PUBLIC_API_HOST = import.meta.env.PUBLIC_API_HOST;
+export const PUBLIC_API_HOST = import.meta.env.SITE + "/api";
 
 const BASE_API = "/v1/";
 const BASE_API_ARTICLE = BASE_API + "article";
