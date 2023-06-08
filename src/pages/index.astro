@@ -3,9 +3,20 @@ import Layout from "@/layouts/Layout.astro";
 // import ListProperties from "@vue-components/list/ListProperties.vue";
 // import ListItemPromo from "@vue-components/list/ListItemPromo.vue";
 import { dictionary } from "@dictionary";
+
+meta = [
+  {
+    name: "description",
+    content: "Analyze Astrology and Energies/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
+  },
+  {
+    name: "canonical",
+    content: import.meta.env.MAIN_HOST,
+  },
+];
 ---
 
-<Layout title={dictionary.site.title} lang={dictionary.language}>
+<Layout title={dictionary.site.title} lang={dictionary.language} meta={meta}>
   <!--<ListProperties class="mt-[16px]" />-->
   <!--<ListItemPromo class="mt-[16px]" />-->
 </Layout>
