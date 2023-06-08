@@ -35,7 +35,7 @@ export const useBirthStore = defineStore("birth", () => {
   );
   const birthCountry: RemovableRef<string> = useSessionStorage(
     BIRTH_STORE.CO,
-    "US"
+    "VI"
   );
   const birthCity: RemovableRef<string | number> = useSessionStorage(
     BIRTH_STORE.CITY,
