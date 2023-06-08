@@ -1,13 +1,16 @@
 import { defineStore } from "pinia";
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import type { Ref } from "vue";
 import { dayNow, monthNow, yearNow } from "@/_content/date-time";
-import { geoCity } from "@/_content/geo-city";
 import { sortArrByKeyString } from "@/helpers/sort";
 import { objToArrSelectObject } from "@/helpers/type";
-import { country } from "@/_content/country";
 import { useSessionStorage } from "@vueuse/core";
 import type { RemovableRef } from "@vueuse/core";
 import { BIRTH_STORE } from "@/constant/sessions-key.constant";
+import { PUBLIC_API_HOST } from "@/constant/endpoint.constant";
+import { apiWebInfoGetGeoCity } from "@/api/web-info/geo-city.api";
+import { HTTP_STATUS_CODE } from "@/constant/http.constant";
+import { country } from "@/_content/country";
 
 export const useBirthStore = defineStore("birth", () => {
   const birthMonth: RemovableRef<string | number> = useSessionStorage(
@@ -46,12 +49,23 @@ export const useBirthStore = defineStore("birth", () => {
     BIRTH_STORE.LNG,
     null
   );
+  const geoCity: Ref<any> = ref(null);
+
+  const init = async () => {
+    const response = await apiWebInfoGetGeoCity(PUBLIC_API_HOST);
+
+    if (parseInt(response.statusCode) === HTTP_STATUS_CODE.SUCCESS) {
+      geoCity.value = JSON.parse(response.data);
+    }
+  };
   const listCountry = sortArrByKeyString(
     objToArrSelectObject(country),
     "title"
   );
   const listCity = computed<object[]>(() =>
-    sortArrByKeyString(geoCity[birthCountry.value], "title")
+    geoCity.value
+      ? sortArrByKeyString(geoCity.value[birthCountry.value], "title")
+      : []
   );
   const isDataFilled = computed<boolean>(
     () =>
@@ -84,7 +98,7 @@ export const useBirthStore = defineStore("birth", () => {
 
   const getBirthGeo = (cityId: number): void => {
     birthCity.value = cityId;
-    let city: { lat: any; lng: any } = geoCity[birthCountry.value].find(
+    let city: { lat: any; lng: any } = geoCity.value[birthCountry.value].find(
       // @ts-ignore
       ({ value }) => value === cityId
     );
@@ -93,6 +107,7 @@ export const useBirthStore = defineStore("birth", () => {
   };
 
   return {
+    init,
     birthMonth,
     birthDay,
     birthYear,
