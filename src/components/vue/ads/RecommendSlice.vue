@@ -53,13 +53,13 @@ onUnmounted(() => {
       class="w-[260px] no-shadow"
       fixedHeight="260px"
       :arrows="false"
-      transition-speed="150"
+      transition-speed="200"
       slide-content-outside="bottom"
       slide-image-inside
       bulletsOutside
     >
       <VSlide
-        class="rounded-xl border-[4px] border-double border-[#cd5dca] border-t-[#4180f4] border-l-[#4180f4]"
+        class="rounded-xl border-[4px] border-[#C445BC] border-t-[#1964F0] border-l-[#1964F0]"
         v-for="(item, index) in itemsAds"
         :key="index"
         :link="item?.contentData.urlOri"

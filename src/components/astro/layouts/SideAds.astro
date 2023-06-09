@@ -6,12 +6,12 @@ const { type, category, slug } = Astro.props;
 ---
 
 <div
-  class="mb-[16px] w-full h-[400px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify"
+  class="mb-[12px] w-full h-[390px] px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify text-white bg-gradient-to-r from-[#6d2269] to-[#072d73]"
 >
   <RecommendSlide client:only="vue" category={category} slug={slug} />
 </div>
 <div
-  class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/40 to-[#4180F4]/40"
+  class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
 >
   <DataFormSideAds client:only="vue" />
 </div>
