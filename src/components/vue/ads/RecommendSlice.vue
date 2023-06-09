@@ -62,13 +62,13 @@ onUnmounted(() => {
         class="rounded-xl border-[4px] border-[#C445BC] border-t-[#1964F0] border-l-[#1964F0]"
         v-for="(item, index) in itemsAds"
         :key="index"
-        :link="item?.contentData.urlOri"
+        :link="item?.contentData.url"
         :image="item?.contentData.previewUrl"
         openInNew
       >
         <template #content>
           <a
-            :href="item.contentData.urlOri"
+            :href="item.contentData.url"
             target="_blank"
             class="absolute text-[12px] font-medium bottom-[-55px] hyphens-manual line-clamp-2"
             :title="item.name"
