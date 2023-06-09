@@ -18,7 +18,7 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone'
   }),
-  site: import.meta.env.MAIN_HOST,
+  site: "https://fateinyourhands.com",
   integrations: [
     tailwind(),
     vue({

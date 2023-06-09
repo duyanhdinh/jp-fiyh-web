@@ -20,10 +20,12 @@ jobs:
 
       - name: Create and .env file
         env:
+          PUBLIC_HOST: ${{ secrets.PUBLIC_HOST }}
           PUBLIC_API_HOST: ${{ secrets.PUBLIC_API_HOST }}
           FETCH_API_HOST: ${{ secrets.FETCH_API_HOST }}
         run: |
           touch .env
+          echo PUBLIC_HOST="$PUBLIC_HOST" >> .env
           echo PUBLIC_API_HOST="$PUBLIC_API_HOST" >> .env
           echo FETCH_API_HOST="$FETCH_API_HOST" >> .env
 

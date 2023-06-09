@@ -1,5 +1,5 @@
 let list: string[] = [];
-const URL: string = import.meta.env.MAIN_HOST
+const URL: string = "https://fateinyourhands.com"
 const dataIncludeParentUrl: any = [
     {
         articles: {
