@@ -36,7 +36,7 @@ const partComponent = (type) => {
 
 <template>
   <div
-    class="w-full h-auto bg-white px-8 py-8 rounded-xl shadow-2xl select-none leading-loose text-justify"
+    class="w-full h-auto bg-white lg:p-8 p-4 rounded-xl shadow-2xl select-none lg:leading-loose leading-relaxed text-justify"
   >
     <h1 class="font-semibold text-[24px] text-blue-900 mb-[8px]">
       {{ content.title }}

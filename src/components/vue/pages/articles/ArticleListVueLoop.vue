@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {});
   <ul
     v-for="(item, key, index) of props.data"
     :key="`${key}-${index}`"
-    class="list-inside list-disc ml-6 capitalize my-2"
+    class="list-inside list-disc ml-3 lg:ml-6 capitalize my-2"
   >
     <template v-if="item.data">
       <li class="cursor-pointer font-semibold underline">
@@ -23,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {});
         :parentUriArticles="`${props.parentUriArticles}/${item.key}`"
       />
     </template>
-    <li v-else class="underline truncate" :title="item.title">
+    <li v-else class="underline lg:truncate" :title="item.title">
       <a :href="`${props.parentUriArticles}/${item.slug}`" target="_blank">{{
         item.title
       }}</a>

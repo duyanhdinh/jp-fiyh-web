@@ -53,6 +53,7 @@ onUnmounted(() => {
       class="w-[260px] no-shadow"
       fixedHeight="260px"
       :arrows="false"
+      :touchable="false"
       transition-speed="200"
       slide-content-outside="bottom"
       slide-image-inside

@@ -20,15 +20,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <VMenu :distance="6" :hideTriggers="['click']">
+  <VMenu
+      :distance="6"
+      :triggers="['hover', 'focus']"
+      :hideTriggers="['click']"
+  >
     <!-- This will be the popover reference (for the events and position) -->
     <button class="w-full h-full">
       <a
-        class="flex items-center text-[20px] capitalize hover:underline font-semibold"
+        class="flex items-center lg:text-[20px] text-[16px] capitalize hover:underline font-semibold"
         href="/articles"
       >
         {{ i18n.header.menu.articles.title }}
-        <ArrowDown class="w-[14px] h-[14px] ml-[4px]" />
+        <ArrowDown class="lg:w-[14px] lg:h-[14px] w-[12px] h-[12px] ml-[8px]" />
       </a>
     </button>
 
