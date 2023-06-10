@@ -107,6 +107,10 @@ module.exports = {
           },
         },
       },
+      spacing: {
+        'footer-bottom': '-40px',
+        'footer': '40px',
+      }
     },
   },
   plugins: [],

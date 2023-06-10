@@ -2,6 +2,7 @@
 import "floating-vue/dist/style.css";
 import "vueperslides/dist/vueperslides.css";
 import LayoutCommon from "./common/LayoutCommon.astro";
+import Pin from "@vue-components/common/Pin.vue";
 
 export interface Props {
   title: string;
@@ -18,7 +19,9 @@ const { title, lang, meta } = Astro.props;
       <slot />
     </div>
     <div class="w-[300px] min-h-[80vh]">
-      <slot name="side-ads" />
+      <Pin client:load>
+        <slot name="side-ads" />
+      </Pin>
     </div>
   </div>
 </LayoutCommon>

@@ -3,7 +3,7 @@ import { computed, onMounted, onUnmounted } from "vue";
 import { storeToRefs } from "pinia";
 import Selected from "@vue-components/common/Selected.vue";
 import { year, month, day, hour, min } from "@/_content/date-time";
-import { useBirthStore } from "@vue-stores/birth.ts";
+import { useBirthStore } from "@vue-stores/birth";
 const birthStore = useBirthStore();
 const {
   birthMonth,
