@@ -4,12 +4,12 @@ import { getDateCircle } from "@helpers/date.helper";
 import { computed } from "vue";
 
 interface Props {
-  score: object;
+  score: any;
 }
 const props = withDefaults(defineProps<Props>(), {});
 const month = computed<object>(() => props?.score?.month ?? null);
 
-const getClassesScore = (score) => {
+const getClassesScore = (score: number) => {
   if (score <= 20) {
     return ["bg-red-500"];
   } else if (score <= 40) {
@@ -25,7 +25,7 @@ const getClassesScore = (score) => {
 </script>
 
 <template>
-  <div class="flex justify-center flex-wrap">
+  <div class="hidden xl:flex justify-center flex-wrap">
     <div class="w-auto flex bg-white">
       <div class="w-[150px] h-[32px] border border-[#BFBFBF]"></div>
       <div

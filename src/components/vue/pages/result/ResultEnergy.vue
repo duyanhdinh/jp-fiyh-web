@@ -11,7 +11,7 @@ const month = computed<object>(() => props.energy?.month ?? null);
 
 <template>
   <div
-    class="mt-[16px] w-full h-[1180px] border border-[#BFBFBF] bg-[#eeeeee] shadow-xl px-[26px] space-y-[16px]"
+    class="mt-[16px] w-full h-auto xl:h-[1180px] pb-[16px] xl:pb-0 border border-[#BFBFBF] bg-[#eeeeee] shadow-xl px-[26px] space-y-[16px]"
   >
     <div
       class="w-full flex flex-wrap justify-center text-[24px] text-black font-semibold mb-[12px]"

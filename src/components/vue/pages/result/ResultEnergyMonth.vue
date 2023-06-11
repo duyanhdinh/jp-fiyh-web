@@ -14,11 +14,17 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="w-full h-[360px] flex justify-between"
-    :class="[imgLeft ? 'flex-row-reverse' : '']"
+    class="w-full h-auto xl:h-[360px] xl:flex justify-between"
+    :class="[imgLeft? '': 'flex-row-reverse']"
   >
     <div
-      class="w-[800px] h-full py-[10px] px-[12px] bg-white border border-[#BFBFBF] text-justify text-[17px] overflow-y-auto"
+        class="w-full xl:w-[280px] h-[240px] xl:h-full bg-cover sm:bg-contain xl:bg-cover bg-center border border-[#BFBFBF]"
+        :style="{
+        'background-image': `url('assets/images/tarot/22-energies/${data.energy}.jpg')`,
+      }"
+    />
+    <div
+      class="w-full xl:w-[800px] h-full py-[10px] px-[12px] bg-white border border-[#BFBFBF] text-justify text-[17px] overflow-y-auto"
     >
       <h2
         class="mb-[6px]"
@@ -32,12 +38,6 @@ const props = withDefaults(defineProps<Props>(), {
       />
       {{ data.detail }}
     </div>
-    <div
-      class="w-[280px] h-full bg-cover bg-center border border-[#BFBFBF]"
-      :style="{
-        'background-image': `url('assets/images/tarot/22-energies/${data.energy}.jpg')`,
-      }"
-    />
   </div>
 </template>
 

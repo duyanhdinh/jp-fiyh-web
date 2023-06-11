@@ -9,16 +9,16 @@ const props = withDefaults(defineProps<Props>(), {});
 
 <template>
   <div
-    class="mt-[16px] w-full h-[520px] border border-[#BFBFBF] bg-[#eeeeee] shadow-xl px-[26px]"
+    class="mt-[16px] w-full h-auto xl:h-[520px] pb-[16px] xl:pb-0 border border-[#BFBFBF] bg-[#eeeeee] shadow-xl px-[26px]"
   >
     <div
       class="w-full flex flex-wrap justify-center text-[24px] text-black font-semibold mb-[12px]"
     >
       {{ $t("result.astrology.title") }}
     </div>
-    <div class="w-full flex">
+    <div class="w-full flex flex-col xl:flex-row items-center">
       <ResultAstroTotal :data="data" />
-      <ResultAstroDetail :data="data" class="ml-[30px] w-[800px] h-[448px]" />
+      <ResultAstroDetail :data="data" class="xl:ml-[30px] w-[800px] h-[448px]" />
     </div>
   </div>
 </template>

@@ -25,11 +25,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-show="isShowing" class="relative w-full h-[240px] px-[20px] mb-[16px]">
-    <div class="absolute top-0 right-[20px] w-[16px] h-[16px] z-20 bg-[#072d73]">
+  <div v-show="isShowing" class="relative w-full h-[240px] mb-[16px]">
+    <div class="absolute top-0 right-0 w-[12px] h-[12px] z-20 bg-[#072d73]">
       <XMark
           color="#dddddd"
-          class="mt-[-4px]"
+          class="mt-[-2px]"
           @click="isShowing = false"
       />
     </div>
@@ -45,7 +45,7 @@ onMounted(() => {
             :title="item?.name"
             class="absolute w-full h-[240px] top-0 object-contain"
         />
-        <div class="absolute w-full bottom-0 bg-gradient-to-r from-[#6d2269] to-[#072d73] text-center hyphens-manual line-clamp-2">{{ item?.name }}</div>
+        <div class="absolute w-full bottom-0 bg-gradient-to-r from-[#6d2269] to-[#072d73] text-[16px] text-center font-semibold hyphens-manual line-clamp-2">{{ item?.name }}</div>
       </div></a>
     </div>
 

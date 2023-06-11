@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ResultSummaryTable from "@vue-components/pages/result/ResultSummaryTable.vue";
+import ResultSummaryTableMobile from "@vue-components/pages/result/ResultSummaryTableMobile.vue";
 
 interface Props {
   score: object;
@@ -9,7 +10,7 @@ const props = withDefaults(defineProps<Props>(), {});
 
 <template>
   <div
-    class="mt-[16px] w-full h-[240px] border border-[#BFBFBF] bg-[#eeeeee] shadow-xl"
+    class="mt-[16px] w-full h-auto xl:h-[240px] pb-[16px] xl:pb-0 border border-[#BFBFBF] bg-[#eeeeee] shadow-xl"
   >
     <div
       class="w-full flex flex-wrap justify-center text-[24px] text-black font-semibold"
@@ -23,6 +24,7 @@ const props = withDefaults(defineProps<Props>(), {});
     </div>
     <div class="w-full justify-center">
       <ResultSummaryTable :score="props.score" />
+      <ResultSummaryTableMobile :score="props.score" />
     </div>
   </div>
 </template>

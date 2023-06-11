@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-// import ListProperties from "@vue-components/list/ListProperties.vue";
-// import ListItemPromo from "@vue-components/list/ListItemPromo.vue";
 import { dictionary } from "@dictionary";
+import DataCalc from "@astro-components/layouts/DataCalc.astro";
+import DataFromSideAds from "@vue-components/ads/DataFromSideAds.vue";
 
 const meta = [
   {
@@ -13,6 +13,12 @@ const meta = [
 ---
 
 <Layout title={dictionary.site.title} lang={dictionary.language} meta={meta}>
-  <!--<ListProperties class="mt-[16px]" />-->
-  <!--<ListItemPromo class="mt-[16px]" />-->
+  <DataCalc class="hidden xl:flex" />
+  <div
+      class="flex xl:hidden w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/80 to-[#4180F4]/80 justify-center"
+  >
+    <div class="w-[252px]">
+      <DataFromSideAds client:only="vue" />
+    </div>
+  </div>
 </Layout>

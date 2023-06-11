@@ -1,6 +1,6 @@
 ---
 import RecommendSlide from "@vue-components/ads/RecommendSlice.vue";
-import DataFormSideAds from "@vue-components/ads/DataFormSideAds.vue";
+import DataFromSideAds from "@vue-components/ads/DataFromSideAds.vue";
 
 const { type, category, slug } = Astro.props;
 ---
@@ -13,5 +13,5 @@ const { type, category, slug } = Astro.props;
 <div
   class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
 >
-  <DataFormSideAds client:only="vue" />
+  <DataFromSideAds client:only="vue" />
 </div>

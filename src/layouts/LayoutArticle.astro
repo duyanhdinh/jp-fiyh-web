@@ -4,7 +4,7 @@ import "vueperslides/dist/vueperslides.css";
 import LayoutCommon from "./common/LayoutCommon.astro";
 import Pin from "@vue-components/common/Pin.vue";
 import RecommendSlide from "@vue-components/ads/RecommendSlice.vue";
-import DataFormSideAds from "@vue-components/ads/DataFormSideAds.vue";
+import DataFromSideAds from "@vue-components/ads/DataFromSideAds.vue";
 import AdsMobileAtAboveArticle from "@vue-components/ads/AdsMobileAtAboveArticle.vue";
 
 export interface Props {
@@ -17,8 +17,8 @@ const { title, lang, meta, typeAds, categoryAds, slugAds } = Astro.props;
 ---
 
 <LayoutCommon title={title} lang={lang} meta={meta}>
-  <div class="w-full h-auto flex flex-col lg:flex-row justify-center xl:justify-between">
-    <AdsMobileAtAboveArticle class="lg:hidden" client:load />
+  <div class="w-full h-auto flex flex-col xl:flex-row justify-center xl:justify-between">
+    <AdsMobileAtAboveArticle class="xl:hidden" client:load />
     <div class="lg:w-[852px] w-full min-h-[80vh] px-[20px] lg:px-0">
       <slot />
     </div>
@@ -32,7 +32,7 @@ const { title, lang, meta, typeAds, categoryAds, slugAds } = Astro.props;
         <div
             class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
         >
-          <DataFormSideAds client:only="vue" />
+          <DataFromSideAds client:only="vue" />
         </div>
       </Pin>
     </div>

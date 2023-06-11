@@ -6,6 +6,9 @@ import ResultEnergy from "@vue-components/pages/result/ResultEnergy.vue";
 import { dictionary } from "@dictionary";
 import { apiDiscoverGetResult } from "../../api/discover/discover.api";
 import { getLocaleDateString } from "@helpers/date.helper";
+import DataCalc from "@astro-components/layouts/DataCalc.astro";
+import DataFromSideAds from "@vue-components/ads/DataFromSideAds.vue";
+import AdsMobileAtAboveArticle from "@vue-components/ads/AdsMobileAtAboveArticle.vue";
 
 const request = {
   year: Astro.url.searchParams.get("y"),
@@ -28,6 +31,9 @@ const date = getLocaleDateString(new Date(data.birth_time), {
 ---
 
 <Layout title={dictionary.site.title} lang={dictionary.language}>
+  <DataCalc class="hidden xl:flex" />
+  <AdsMobileAtAboveArticle class="xl:hidden" client:load />
+
   <h1 class="w-full text-center font-bold text-[20px] mt-[16px]">
     {dictionary.result.title(date)}
   </h1>
