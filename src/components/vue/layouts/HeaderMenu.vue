@@ -45,8 +45,8 @@ onUnmounted(() => {
             <a
               :href="`/articles/${itemMenu.slug}`"
               class="w-full h-full flex justify-start capitalize underline font-semibold"
-              >{{ itemMenu.title }}</a
-            >
+              >{{ itemMenu.title }}
+            </a>
           </button>
 
           <!-- This will be the content of the popover -->
