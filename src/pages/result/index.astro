@@ -32,7 +32,15 @@ const date = getLocaleDateString(new Date(data.birth_time), {
 
 <Layout title={dictionary.site.title} lang={dictionary.language}>
   <DataCalc class="hidden xl:flex" />
-  <AdsMobileAtAboveArticle class="xl:hidden" client:load />
+  <!--todo:-->
+  <!--<AdsMobileAtAboveArticle class="xl:hidden" client:load />-->
+  <div
+    class="flex xl:hidden justify-center w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
+  >
+    <div class="w-[300px]">
+      <DataFromSideAds client:only="vue" />
+    </div>
+  </div>
 
   <h1 class="w-full text-center font-bold text-[20px] mt-[16px]">
     {dictionary.result.title(date)}
@@ -45,19 +53,19 @@ const date = getLocaleDateString(new Date(data.birth_time), {
     request={request}
   />
   <ResultAstro class="mt-[16px]" client:load data={data} />
-  {
-    import.meta.env.PUBLIC_ENABLE_GG_ADS === "TRUE" &&
-    <div class="mt-[16px]"></div>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-format="fluid"
-         data-ad-layout-key="-g0-l+7p-8k-bk"
-         data-ad-client="ca-pub-2866636083559780"
-         data-ad-slot="7050371651"
-    ></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-  }
+
+  <!--todo:-->
+  <!--<div class="mt-[16px]"></div>-->
+  <!--<ins class="adsbygoogle"-->
+  <!--     style="display:block"-->
+  <!--     data-ad-format="fluid"-->
+  <!--     data-ad-layout-key="-g0-l+7p-8k-bk"-->
+  <!--     data-ad-client="ca-pub-2866636083559780"-->
+  <!--     data-ad-slot="7050371651"-->
+  <!--&gt;</ins>-->
+  <!--<script>-->
+  <!--  (adsbygoogle = window.adsbygoogle || []).push({});-->
+  <!--</script>-->
+
   <ResultEnergy class="mt-[16px]" client:load energy={data.energy} />
 </Layout>

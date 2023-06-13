@@ -7,15 +7,16 @@ import DataFromSideAds from "@vue-components/ads/DataFromSideAds.vue";
 const meta = [
   {
     name: "description",
-    content: "Analyze Astrology and Energies/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
-  }
+    content:
+      "Analyze Astrology and Energies/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
+  },
 ];
 ---
 
 <Layout title={dictionary.site.title} lang={dictionary.language} meta={meta}>
   <DataCalc class="hidden xl:flex" />
   <div
-      class="flex xl:hidden w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/80 to-[#4180F4]/80 justify-center"
+    class="flex xl:hidden w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/80 to-[#4180F4]/80 justify-center"
   >
     <div class="w-[252px]">
       <DataFromSideAds client:only="vue" />

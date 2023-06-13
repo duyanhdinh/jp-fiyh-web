@@ -18,7 +18,10 @@ const props = withDefaults(defineProps<Props>(), {});
     </div>
     <div class="w-full flex flex-col xl:flex-row items-center">
       <ResultAstroTotal :data="data" />
-      <ResultAstroDetail :data="data" class="xl:ml-[30px] w-[800px] h-[448px]" />
+      <ResultAstroDetail
+        :data="data"
+        class="xl:ml-[30px] w-[800px] h-[448px]"
+      />
     </div>
   </div>
 </template>

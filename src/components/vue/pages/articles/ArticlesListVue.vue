@@ -2,9 +2,8 @@
 import ArticleListVueLoop from "@vue-components/pages/articles/ArticleListVueLoop.vue";
 interface Props {
   data: object;
-  parentUriList: string;
-  parentUriArticles: string;
   resource: string;
+  from: string;
 }
 const props = withDefaults(defineProps<Props>(), {});
 </script>
@@ -13,11 +12,7 @@ const props = withDefaults(defineProps<Props>(), {});
   <div class="text-[18px] italic">
     {{ $t("menu_list.resource_for") }} {{ resource }}:
   </div>
-  <ArticleListVueLoop
-    :data="data"
-    :parentUriList="parentUriList"
-    :parentUriArticles="parentUriArticles"
-  />
+  <ArticleListVueLoop :data="data" :from="from" />
 </template>
 
 <style scoped></style>

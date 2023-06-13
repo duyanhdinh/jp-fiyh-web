@@ -15,11 +15,11 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <div
     class="w-full h-auto xl:h-[360px] xl:flex justify-between"
-    :class="[imgLeft? '': 'flex-row-reverse']"
+    :class="[imgLeft ? '' : 'flex-row-reverse']"
   >
     <div
-        class="w-full xl:w-[280px] h-[240px] xl:h-full bg-cover sm:bg-contain xl:bg-cover bg-center border border-[#BFBFBF]"
-        :style="{
+      class="w-full xl:w-[280px] h-[240px] xl:h-full bg-cover sm:bg-contain xl:bg-cover bg-center border border-[#BFBFBF]"
+      :style="{
         'background-image': `url('assets/images/tarot/22-energies/${data.energy}.jpg')`,
       }"
     />

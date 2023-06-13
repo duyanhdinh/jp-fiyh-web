@@ -29,41 +29,54 @@ const getClassesScore = (score: number) => {
     <div class="w-[340px] h-auto">
       <div class="w-full bg-white flex text-[15px]">
         <div
-            class="w-[100px] h-auto border border-[#BFBFBF] pl-[4px] pt-[3px] font-medium text-start capitalize"
+          class="w-[100px] h-auto border border-[#BFBFBF] pl-[4px] pt-[3px] font-medium text-start capitalize"
         ></div>
         <div
-            class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-        >{{ getDateCircle(0) }}</div>
+          class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+        >
+          {{ getDateCircle(0) }}
+        </div>
         <div
-            class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-        >{{ getDateCircle(1) }}</div>
+          class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+        >
+          {{ getDateCircle(1) }}
+        </div>
         <div
-            class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-        >{{ getDateCircle(2) }}</div>
-
+          class="w-[80px] h-auto border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+        >
+          {{ getDateCircle(2) }}
+        </div>
       </div>
       <div
-          v-for="(item, index) of properties"
-          :key="index"
-          class="w-full bg-white flex text-[15px]"
+        v-for="(item, index) of properties"
+        :key="index"
+        class="w-full bg-white flex text-[15px]"
       >
         <div
-            class="w-[100px] min-h-[32px] border border-[#BFBFBF] pl-[4px] pt-[3px] font-medium text-start capitalize"
-            :class="[`text-[${item.color.dark}]`]"
-            :title="item.name"
-        >{{ item.name }}</div>
+          class="w-[100px] min-h-[32px] border border-[#BFBFBF] pl-[4px] pt-[3px] font-medium text-start capitalize"
+          :class="[`text-[${item.color.dark}]`]"
+          :title="item.name"
+        >
+          {{ item.name }}
+        </div>
         <div
-            class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-            :class="getClassesScore(month.n0[`p${item.key}`])"
-        >{{ month.n0[`p${item.key}`] }}</div>
+          class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+          :class="getClassesScore(month.n0[`p${item.key}`])"
+        >
+          {{ month.n0[`p${item.key}`] }}
+        </div>
         <div
-            class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-            :class="getClassesScore(month.n1[`p${item.key}`])"
-        >{{ month.n1[`p${item.key}`] }}</div>
+          class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+          :class="getClassesScore(month.n1[`p${item.key}`])"
+        >
+          {{ month.n1[`p${item.key}`] }}
+        </div>
         <div
-            class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
-            :class="getClassesScore(month.n2[`p${item.key}`])"
-        >{{ month.n2[`p${item.key}`] }}</div>
+          class="w-[80px] min-h-[32px] border border-[#BFBFBF] pt-[3px] text-[14px] font-medium justify-center capitalize flex items-center"
+          :class="getClassesScore(month.n2[`p${item.key}`])"
+        >
+          {{ month.n2[`p${item.key}`] }}
+        </div>
       </div>
     </div>
   </div>

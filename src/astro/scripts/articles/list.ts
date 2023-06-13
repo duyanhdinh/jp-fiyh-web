@@ -1,33 +1,59 @@
 import { apiWebInfoGetMenu } from "@/api/web-info/menu.api";
+import type { Entries } from "@/type/object";
 
-export const articlesListHandles = async (
-  Astro: any,
-  { type = "F0", f1 = null, f2 = null }: any
-) => {
+export const articlesListHandles = async (Astro: any) => {
   let data = { ...(await apiWebInfoGetMenu()) }.data;
-  const parentUriList = Astro.url.pathname;
-  const parentUriArticles = `${parentUriList}/`
-    .replaceAll("s/", "/")
-    .replaceAll("-atc/", "/")
-    .slice(0, -1);
-  const resource = parentUriArticles.split("/").pop();
+  let resource = "article";
+  const from = Astro.url.pathname;
+  let paths = from.slice(1).split("/");
+  paths.shift();
 
-  let circles = ["F0"];
+  let path = paths.shift();
+  while (path) {
+    if (!path.startsWith("list-")) return undefined;
 
-  if (!circles.includes(type)) {
-    data = checkAcceptRoute(data, f1);
-    if (data === null)
-      return { data, parentUriList, parentUriArticles, resource };
+    path = path.replace(/list-/, "");
+    for (const [key, value] of Object.entries(data) as Entries<any>) {
+      if (value.slug === path) {
+        data = value.child;
+        break;
+      }
+    }
+
+    if (data === undefined) return data;
+
+    resource = path.replaceAll("-", " ");
+
+    path = paths.shift();
   }
 
-  circles.push("F1");
-  if (!circles.includes(type)) {
-    data = checkAcceptRoute(data, f2);
-    if (data === null)
-      return { data, parentUriList, parentUriArticles, resource };
-  }
+  return { data, resource, from };
 
-  return { data, parentUriList, parentUriArticles, resource };
+  // const parentUriList = Astro.url.pathname;
+  // const parentUriArticles = `${parentUriList}/`
+  //     .replaceAll("s/", "/")
+  //     .replaceAll("-atc/", "/")
+  //     .slice(0, -1);
+  // const resource = parentUriArticles.split("/").pop();
+  //
+  // let circles = ["F0"];
+  //
+  // if (!circles.includes(type)) {
+  //   data = checkAcceptRoute(data, f1);
+  //   if (data === null)
+  //     return { data, parentUriList, parentUriArticles, resource };
+  // }
+  //
+  // circles.push("F1");
+  // if (!circles.includes(type)) {
+  //   data = checkAcceptRoute(data, f2);
+  //   if (data === null)
+  //     return { data, parentUriList, parentUriArticles, resource };
+  // }
+  //
+  // return { data, parentUriList, parentUriArticles, resource };
+
+  return { data };
 };
 
 const checkAcceptRoute = (data: any, f: string) => {

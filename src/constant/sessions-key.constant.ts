@@ -8,6 +8,7 @@ export const BIRTH_STORE = {
   CITY: "birthCity",
   LAT: "birthLat",
   LNG: "birthLng",
+  GEO: "birthGeo",
 };
 
 export const MENU_STORE = {

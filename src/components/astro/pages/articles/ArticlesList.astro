@@ -3,19 +3,13 @@ import ArticlesListVue from "@vue-components/pages/articles/ArticlesListVue.vue"
 
 export interface Props {
   data: any;
-  parentUriList: string;
-  parentUriArticles: string;
   resource: string;
+  from: string;
 }
 
-const { data, parentUriList, parentUriArticles, resource } = Astro.props;
+const { data, resource, from } = Astro.props;
 ---
 
 <div class="bg-white px-8 py-8 rounded-xl shadow-2xl">
-  <ArticlesListVue
-    data={data}
-    parentUriList={parentUriList}
-    parentUriArticles={parentUriArticles}
-    resource={resource}
-  />
+  <ArticlesListVue data={data} resource={resource} from={from} client:load />
 </div>

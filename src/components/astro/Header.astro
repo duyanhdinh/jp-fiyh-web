@@ -3,13 +3,18 @@ import { dictionary } from "@dictionary";
 import HeaderMenu from "@vue-components/layouts/HeaderMenu.vue";
 ---
 
-<div class="w-full lg:h-[80px] h-[40px] px-[20px] lg:px-0 flex items-center justify-between">
+<div
+  class="w-full lg:h-[80px] h-[40px] px-[20px] lg:px-0 flex items-center justify-between"
+>
   <div class="h-full flex items-center">
     <a
       href="/"
       class="lg:w-[60px] lg:h-[60px] w-[30px] h-[30px] rounded-lg bg-gradient-to-r from-[#CD5DCA] to-[#4180F4] cursor-pointer"
     >
-      <img src="/assets/images/logo/logo_64x64.png" alt={dictionary.site.name} />
+      <img
+        src="/assets/images/logo/logo_64x64.png"
+        alt={dictionary.site.name}
+      />
     </a>
     <div
       class="lg:ml-[32px] ml-[8px] lg:text-[28px] text-[16px] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#4180F4] to-[#CD5DCA]"

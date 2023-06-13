@@ -17,20 +17,24 @@ const { title, lang, meta, typeAds, categoryAds, slugAds } = Astro.props;
 ---
 
 <LayoutCommon title={title} lang={lang} meta={meta}>
-  <div class="w-full h-auto flex flex-col xl:flex-row justify-center xl:justify-between">
-    <AdsMobileAtAboveArticle class="xl:hidden" client:load />
+  <div
+    class="w-full h-auto flex flex-col xl:flex-row justify-center xl:justify-between"
+  >
+    <!--todo:-->
+    <!--<AdsMobileAtAboveArticle class="xl:hidden" client:load />-->
     <div class="lg:w-[852px] w-full min-h-[80vh] px-[20px] lg:px-0">
       <slot />
     </div>
     <div class="w-[300px] min-h-[80vh] xl:block hidden">
       <Pin client:load>
+        <!--todo:-->
+        <!--<div-->
+        <!--    class="mb-[12px] w-full h-[390px] px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify text-white bg-gradient-to-r from-[#6d2269] to-[#072d73]"-->
+        <!--&gt;-->
+        <!--  <RecommendSlide client:only="vue" category={categoryAds} slug={slugAds} />-->
+        <!--</div>-->
         <div
-            class="mb-[12px] w-full h-[390px] px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify text-white bg-gradient-to-r from-[#6d2269] to-[#072d73]"
-        >
-          <RecommendSlide client:only="vue" category={categoryAds} slug={slugAds} />
-        </div>
-        <div
-            class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
+          class="w-full h-[390px] bg-white px-4 pt-2 pb-6 rounded-xl shadow-2xl select-none leading-loose text-justify bg-gradient-to-r from-[#CD5DCA]/30 to-[#4180F4]/30"
         >
           <DataFromSideAds client:only="vue" />
         </div>

@@ -20,11 +20,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <VMenu
-      :distance="6"
-      :triggers="['hover', 'focus']"
-      :hideTriggers="['click']"
-  >
+  <VMenu :distance="6" :triggers="['hover', 'focus']" :hideTriggers="['click']">
     <!-- This will be the popover reference (for the events and position) -->
     <button class="w-full h-full">
       <a
@@ -47,16 +43,17 @@ onUnmounted(() => {
           <!-- This will be the popover reference (for the events and position) -->
           <button class="w-full h-full px-[12px] py-[6px] hover:bg-[#4180f4]">
             <a
-              :href="`/articles/${itemMenu.keys}`"
+              :href="`/articles/${itemMenu.slug}`"
               class="w-full h-full flex justify-start capitalize underline font-semibold"
-              >{{ keyMenu }}</a
+              >{{ itemMenu.title }}</a
             >
           </button>
 
           <!-- This will be the content of the popover -->
           <template #popper>
             <div
-              v-for="(itemMenu2, keyMenu2, indexMenu2) of itemMenu.data"
+              v-if="itemMenu.child"
+              v-for="(itemMenu2, keyMenu2, indexMenu2) of itemMenu.child"
               :key="`${keyMenu2}-${indexMenu2}`"
               class="w-[160px] px-[12px] py-[6px] capitalize underline"
             >
@@ -66,22 +63,22 @@ onUnmounted(() => {
                   class="w-full h-full px-[12px] py-[6px] hover:bg-[#4180f4]"
                 >
                   <a
-                    :href="`/articles/${itemMenu.keys}/${itemMenu2.keys}`"
+                    :href="`/articles/${itemMenu.slug}/${itemMenu2.slug}`"
                     class="w-full h-full flex justify-start capitalize underline font-semibold"
-                    >{{ itemMenu2.name }}</a
+                    >{{ itemMenu2.title }}</a
                   >
                 </button>
 
                 <!-- This will be the content of the popover -->
                 <template #popper>
                   <div
-                    v-for="(itemMenu3, keyMenu3, indexMenu3) of itemMenu2.data"
+                    v-for="(itemMenu3, keyMenu3, indexMenu3) of itemMenu2.child"
                     :key="`${keyMenu3}-${indexMenu3}`"
                     class="w-auto max-w-[500px] px-[12px] py-[6px] capitalize underline hover:bg-[#4180f4]"
                     :title="itemMenu3.title"
                   >
                     <a
-                      :href="`/article/${itemMenu.key}/${itemMenu2.key}/${itemMenu3.slug}`"
+                      :href="`/article/${itemMenu.slug}/${itemMenu2.slug}/${itemMenu3.slug}`"
                       class="w-full h-full flex justify-start capitalize underline font-semibold"
                       ><div class="w-full truncate">
                         {{ itemMenu3.title }}

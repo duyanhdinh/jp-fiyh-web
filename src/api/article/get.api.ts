@@ -1,11 +1,7 @@
 import { ARTICLE, FETCH_API_HOST } from "@/constant/endpoint.constant";
 
 export const getArticle = async (
-  request: {
-    type: string;
-    category: string;
-    slug: string;
-  },
+  slug: string,
   host: string = FETCH_API_HOST
 ) => {
   const response = await fetch(host + ARTICLE.GET_ARTICLE, {
@@ -14,7 +10,7 @@ export const getArticle = async (
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(request),
+    body: JSON.stringify({ slug }),
   });
 
   return response.json();

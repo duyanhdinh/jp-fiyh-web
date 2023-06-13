@@ -1,10 +1,19 @@
 <script setup lang="ts">
+import ArticleListVueChild from "@vue-components/pages/articles/ArticleListVueChild.vue";
+
 interface Props {
   data: object;
-  parentUriList: string;
-  parentUriArticles: string;
+  from: string;
 }
 const props = withDefaults(defineProps<Props>(), {});
+
+const getHrefArticle = (item: any) => {
+  const prefix = props.from
+    .replace("articles", "article")
+    .replaceAll("/list-", "/");
+
+  return `${prefix}/${item.slug}`;
+};
 </script>
 
 <template>
@@ -13,20 +22,12 @@ const props = withDefaults(defineProps<Props>(), {});
     :key="`${key}-${index}`"
     class="list-inside list-disc ml-3 lg:ml-6 capitalize my-2"
   >
-    <template v-if="item.data">
-      <li class="cursor-pointer font-semibold underline">
-        <a :href="`${props.parentUriList}/${item.keys}`">{{ item.name }}</a>
-      </li>
-      <ArticleListVueLoop
-        :data="item.data"
-        :parentUriList="`${props.parentUriList}/${item.keys}`"
-        :parentUriArticles="`${props.parentUriArticles}/${item.key}`"
-      />
+    <template v-if="item.child">
+      <ArticleListVueChild :data="data" :from="from" :item="item" />
     </template>
+
     <li v-else class="underline lg:truncate" :title="item.title">
-      <a :href="`${props.parentUriArticles}/${item.slug}`" target="_blank">{{
-        item.title
-      }}</a>
+      <a :href="getHrefArticle(item)" target="_blank">{{ item.title }}</a>
     </li>
   </ul>
 </template>
