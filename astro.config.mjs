@@ -5,7 +5,7 @@ import vue from "@astrojs/vue";
 import sitemap from "@astrojs/sitemap";
 import {generalUrlSiteMap} from "./sitemap/genera-sitemap-ssr";
 
-const customPages = generalUrlSiteMap();
+const customPages = await generalUrlSiteMap();
 
 // https://astro.build/config
 export default defineConfig({
