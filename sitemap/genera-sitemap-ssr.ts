@@ -8,5 +8,7 @@ export const generalUrlSiteMap = async (): Promise<string[]> => {
             res = JSON.parse(data.data);
         })
 
+    console.log(res)
+
     return res;
 }
