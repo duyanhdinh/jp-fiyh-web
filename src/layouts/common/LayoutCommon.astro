@@ -21,7 +21,7 @@ const { title, lang, meta } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     {
       meta &&
-        meta.map((item) => <meta name={item.name} content={item.content}>)
+        meta.map((item) => <meta name={item.name} content={item.content} />)
     }
     <title>{title}</title>
     <!--<script-->
