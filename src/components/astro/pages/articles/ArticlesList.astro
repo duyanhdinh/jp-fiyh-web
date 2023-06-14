@@ -11,5 +11,5 @@ const { data, resource, from } = Astro.props;
 ---
 
 <div class="bg-white px-8 py-8 rounded-xl shadow-2xl">
-  <ArticlesListVue data={data} resource={resource} from={from} client:load />
+  <ArticlesListVue data={data} resource={resource} from={from} client:only="vue" />
 </div>
