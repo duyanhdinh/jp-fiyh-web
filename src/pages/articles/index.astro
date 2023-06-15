@@ -5,8 +5,15 @@ import ArticlesList from "@astro-components/pages/articles/ArticlesList.astro";
 import { dictionary } from "../../locales/en/translation";
 
 const { data, resource, from } = await articlesListHandles(Astro);
+
+const meta = [
+  {
+    name: "description",
+    content: "The menu of articles",
+  }
+];
 ---
 
-<LayoutArticle title={dictionary.site.title} lang={dictionary.language}>
+<LayoutArticle title={dictionary.site.title} lang={dictionary.language} meta={meta}>
   <ArticlesList data={data} resource={resource} from={from} />
 </LayoutArticle>

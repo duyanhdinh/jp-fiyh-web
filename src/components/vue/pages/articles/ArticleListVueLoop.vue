@@ -22,7 +22,7 @@ const getHrefArticle = (item: any) => {
     :key="`${key}-${index}`"
     class="list-inside list-disc ml-3 lg:ml-6 capitalize my-2"
   >
-    <template v-if="item.child">
+    <template v-if="item.child || item.sub">
       <ArticleListVueChild :data="data" :from="from" :item="item" />
     </template>
 
