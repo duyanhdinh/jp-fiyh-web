@@ -28,32 +28,6 @@ export const articlesListHandles = async (Astro: any) => {
   }
 
   return { data, resource, from };
-
-  // const parentUriList = Astro.url.pathname;
-  // const parentUriArticles = `${parentUriList}/`
-  //     .replaceAll("s/", "/")
-  //     .replaceAll("-atc/", "/")
-  //     .slice(0, -1);
-  // const resource = parentUriArticles.split("/").pop();
-  //
-  // let circles = ["F0"];
-  //
-  // if (!circles.includes(type)) {
-  //   data = checkAcceptRoute(data, f1);
-  //   if (data === null)
-  //     return { data, parentUriList, parentUriArticles, resource };
-  // }
-  //
-  // circles.push("F1");
-  // if (!circles.includes(type)) {
-  //   data = checkAcceptRoute(data, f2);
-  //   if (data === null)
-  //     return { data, parentUriList, parentUriArticles, resource };
-  // }
-  //
-  // return { data, parentUriList, parentUriArticles, resource };
-
-  return { data };
 };
 
 const checkAcceptRoute = (data: any, f: string) => {

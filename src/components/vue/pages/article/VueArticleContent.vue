@@ -7,11 +7,15 @@ import VueArticlePartUl from "@vue-components/pages/article/parts/VueArticlePart
 import VueArticlePartItalic from "@vue-components/pages/article/parts/VueArticlePartItalic.vue";
 import VueArticlePartH3Italic from "@vue-components/pages/article/parts/VueArticlePartH3Italic.vue";
 import VueArticlePartStrong from "@vue-components/pages/article/parts/VueArticlePartStrong.vue";
+import BreadCrumb from "@vue-components/common/BreadCrumb.vue";
 
 interface Props {
   content: object;
+  breadCrumb?: any;
 }
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {
+  breadCrumb: [],
+});
 
 const partComponent = (type) => {
   switch (type) {
@@ -36,8 +40,9 @@ const partComponent = (type) => {
 
 <template>
   <div
-    class="w-full h-auto bg-white lg:p-8 p-4 rounded-xl shadow-2xl select-none lg:leading-loose leading-relaxed text-justify"
+    class="w-full h-auto bg-white lg:px-8 lg:py-6 p-4 rounded-xl shadow-2xl select-none lg:leading-loose leading-relaxed text-justify"
   >
+    <BreadCrumb :data="breadCrumb" />
     <h1 class="font-semibold text-[24px] text-blue-900 mb-[8px]">
       {{ content.title }}
     </h1>

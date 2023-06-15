@@ -14,17 +14,23 @@ const props = withDefaults(defineProps<Props>(), {});
 
 const isShowChild: Ref<boolean> = ref(false);
 
-const getHrefMenu = (item: any) => item.slug ? `${props.from}/list-${item.slug}`: props.from;
+const getHrefMenu = (item: any) =>
+  item.slug ? `${props.from}/list-${item.slug}` : props.from;
 
 const getDataLoop = (item: any) => item.child ?? item.sub;
 </script>
 
 <template>
   <div
-      class="font-semibold pl-[4px] pr-[8px] flex justify-between"
-      :class="[item.child ? 'bg-orange-300' : '']"
+    class="font-semibold pl-[4px] pr-[8px] flex justify-between"
+    :class="[item.child ? 'bg-orange-300' : '']"
   >
-    <a v-if="item.slug" :href="getHrefMenu(item)" class="cursor-pointer underline">{{ item.title }}</a>
+    <a
+      v-if="item.slug"
+      :href="getHrefMenu(item)"
+      class="cursor-pointer underline"
+      >{{ item.title }}</a
+    >
     <div v-else>{{ item.title }}</div>
 
     <div v-if="item.child" class="w-[20px] h-[20px] cursor-pointer">
@@ -35,7 +41,6 @@ const getDataLoop = (item: any) => item.child ?? item.sub;
   <div v-show="isShowChild || item.sub">
     <ArticleListVueLoop :data="getDataLoop(item)" :from="getHrefMenu(item)" />
   </div>
-
 </template>
 
 <style scoped></style>

@@ -58,9 +58,10 @@ onUnmounted(() => {
               class="w-[160px] px-[12px] py-[6px] capitalize underline hover:bg-[#4180f4]"
             >
               <a
-                  :href="`/articles/list-${itemMenu.slug}/list-${itemMenu2.slug}`"
-                  class="w-full h-full flex justify-start capitalize underline font-semibold"
-              >{{ itemMenu2.title }}</a>
+                :href="`/articles/list-${itemMenu.slug}/list-${itemMenu2.slug}`"
+                class="w-full h-full flex justify-start capitalize underline font-semibold"
+                >{{ itemMenu2.title }}</a
+              >
             </div>
           </template>
         </VMenu>

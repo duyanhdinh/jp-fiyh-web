@@ -10,10 +10,14 @@ const meta = [
   {
     name: "description",
     content: "The menu of articles",
-  }
+  },
 ];
 ---
 
-<LayoutArticle title={dictionary.site.title} lang={dictionary.language} meta={meta}>
+<LayoutArticle
+  title={dictionary.site.title}
+  lang={dictionary.language}
+  meta={meta}
+>
   <ArticlesList data={data} resource={resource} from={from} />
 </LayoutArticle>

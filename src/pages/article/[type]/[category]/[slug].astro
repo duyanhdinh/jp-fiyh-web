@@ -29,6 +29,9 @@ if (statusCode === HTTP_STATUS_CODE.SUCCESS) {
     },
   ];
 }
+
+const breadCrumb = Astro.url.pathname.slice(1).split("/");
+breadCrumb.pop();
 ---
 
 {statusCode !== HTTP_STATUS_CODE.SUCCESS && <PageNotFound />}
@@ -43,7 +46,7 @@ if (statusCode === HTTP_STATUS_CODE.SUCCESS) {
       categoryAds={category}
       slugAds={slug}
     >
-      <VueArticleContent content={data.contentData} />
+      <VueArticleContent breadCrumb={breadCrumb} content={data.contentData} />
     </LayoutArticle>
   )
 }
