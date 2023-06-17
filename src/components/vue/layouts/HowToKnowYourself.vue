@@ -8,9 +8,9 @@
       How to know yourself?
     </h2>
     <div class="text-justify">
-      <span class="font-semibold">Astrology/Zodiac</span> predicts mundane events based
-      on the assumption that celestial bodies determine or indicate changes in
-      the sublunar world and affects destinies of individuals.
+      <span class="font-semibold">Astrology/Zodiac</span> predicts mundane
+      events based on the assumption that celestial bodies determine or indicate
+      changes in the sublunar world and affects destinies of individuals.
     </div>
     <div class="text-justify">
       <span class="font-semibold">Tarot/Matrix of Destiny</span> is a
