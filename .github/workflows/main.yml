@@ -2,7 +2,7 @@ name: Build and push docker image and request deploy to EB
 on:
   push:
     branches:
-      - main
+      - master
   repository_dispatch:
     types: [ update_sitemap ]
 jobs:
