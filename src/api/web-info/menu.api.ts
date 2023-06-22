@@ -3,9 +3,6 @@ import { FETCH_API_HOST, GET_MENU } from "@/constant/endpoint.constant";
 export const apiWebInfoGetMenu = async (host: string = "") => {
   if (!host) host = FETCH_API_HOST;
 
-  console.log('host', host)
-  console.log('host', host)
-
   return fetch(`${host}${GET_MENU}`, {
     method: "get",
     headers: {
