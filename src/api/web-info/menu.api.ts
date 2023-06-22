@@ -1,13 +1,14 @@
-import { FETCH_API_HOST, GET_MENU } from "@/constant/endpoint.constant";
+import {FETCH_API_HOST, GET_MENU} from "@/constant/endpoint.constant";
 
 export const apiWebInfoGetMenu = async (host: string = FETCH_API_HOST) => {
-  const response = await fetch(`${host}${GET_MENU}`, {
+  console.log('api', `${host}${GET_MENU}`)
+  return await fetch(`${host}${GET_MENU}`, {
     method: "get",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-  });
-
-  return response.json();
+  })
+      .then((response) => response.json())
+      .catch(e => console.log('error: ', e));
 };
