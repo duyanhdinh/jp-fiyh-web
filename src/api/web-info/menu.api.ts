@@ -9,7 +9,6 @@ export const apiWebInfoGetMenu = async (host: string = FETCH_API_HOST) => {
       "Content-Type": "application/json",
     },
   });
-
   console.log('res: ', response.json())
 
   return response.json();
