@@ -1,7 +1,7 @@
 import { ARTICLE, FETCH_API_HOST } from "@/constant/endpoint.constant";
 
 export const getArticle = async (slug: string, host: string = "") => {
-  if (host) host = FETCH_API_HOST;
+  if (!host) host = FETCH_API_HOST;
   const response = await fetch(host + ARTICLE.GET_ARTICLE, {
     method: "post",
     headers: {
