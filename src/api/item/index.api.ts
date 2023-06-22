@@ -5,8 +5,9 @@ export const getItemsRecommend = async (
     type?: string;
     limit?: number;
   },
-  host: string = FETCH_API_HOST
+  host: string = ""
 ) => {
+  if (host) host = FETCH_API_HOST;
   const response = await fetch(host + URI_ITEM.GET_RECOMMEND, {
     method: "post",
     headers: {
