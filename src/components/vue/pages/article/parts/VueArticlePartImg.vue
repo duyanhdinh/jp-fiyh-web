@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {computed} from "vue";
+import { computed } from "vue";
+import { PUBLIC_API_HOST } from "@/constant/endpoint.constant";
 
 interface Props {
   data: any;
@@ -11,18 +12,13 @@ const imgUrl = computed<string>(() => {
     return props.data.uri;
   }
 
-  return `/assets/images/test/${props.data.uri}`;
-})
+  return `${PUBLIC_API_HOST}/images/article/${props.data.uri}`;
+});
 </script>
 
 <template>
   <div class="my-[12px]">
-    <img
-      :src="imgUrl"
-      :alt="data.text"
-      :title="data.text"
-      class="rounded-lg"
-    />
+    <img :src="imgUrl" :alt="data.text" :title="data.text" class="rounded-lg" />
     <div class="text-center italic text-[14px]">{{ data.text }}</div>
   </div>
 </template>
