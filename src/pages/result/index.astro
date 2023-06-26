@@ -28,9 +28,21 @@ if (data === undefined) return Astro.redirect("/");
 const date = getLocaleDateString(new Date(data.birth_time), {
   timeZone: data.birth_time_zone,
 });
+
+const meta = [
+  {
+    name: "description",
+    content:
+      "Analyze Astrology and Tarot/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
+  },
+  {
+    name: "canonical",
+    content: import.meta.env.PUBLIC_HOST + "/",
+  },
+];
 ---
 
-<Layout title={dictionary.site.title} lang={dictionary.language}>
+<Layout title={dictionary.site.title} lang={dictionary.language} meta={meta}>
   <DataCalc class="hidden xl:flex" />
   <!--todo:-->
   <!--<AdsMobileAtAboveArticle class="xl:hidden" client:load />-->

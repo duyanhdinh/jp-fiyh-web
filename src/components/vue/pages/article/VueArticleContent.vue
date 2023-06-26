@@ -43,7 +43,7 @@ const partComponent = (type) => {
     class="w-full h-auto bg-white lg:px-8 lg:py-6 p-4 rounded-xl shadow-2xl select-none lg:leading-loose leading-relaxed text-justify"
   >
     <BreadCrumb :data="breadCrumb" />
-    <h1 class="font-semibold text-[24px] text-blue-900 mb-[8px]">
+    <h1 class="font-semibold text-[24px] text-blue-900 mb-[8px] capitalize">
       {{ content.title }}
     </h1>
     <template v-for="(part, index) of content.body" :key="index">
