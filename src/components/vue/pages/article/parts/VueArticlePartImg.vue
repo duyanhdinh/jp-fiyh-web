@@ -1,14 +1,24 @@
 <script setup lang="ts">
+import {computed} from "vue";
+
 interface Props {
   data: any;
 }
 const props = withDefaults(defineProps<Props>(), {});
+
+const imgUrl = computed<string>(() => {
+  if (props.data.uri.startsWith("https://")) {
+    return props.data.uri;
+  }
+
+  return `/assets/images/test/${props.data.uri}`;
+})
 </script>
 
 <template>
   <div class="my-[12px]">
     <img
-      :src="`/assets/images/test/${data.uri}`"
+      :src="imgUrl"
       :alt="data.text"
       :title="data.text"
       class="rounded-lg"

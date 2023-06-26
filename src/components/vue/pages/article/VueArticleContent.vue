@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
   breadCrumb: [],
 });
 
-const partComponent = (type) => {
+const partComponent = (type: string) => {
   switch (type) {
     case HTML_ELEMENT.h2:
       return VueArticlePartH2;
