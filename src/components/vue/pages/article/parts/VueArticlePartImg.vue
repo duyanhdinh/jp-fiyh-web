@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { PUBLIC_API_HOST } from "@/constant/endpoint.constant";
+import {FULL_PUBLIC_API_HOST, PUBLIC_API_HOST} from "@/constant/endpoint.constant";
 
 interface Props {
   data: any;
@@ -12,7 +12,7 @@ const imgUrl = computed<string>(() => {
     return props.data.uri;
   }
 
-  return `${PUBLIC_API_HOST}/images/article/${props.data.uri}`;
+  return `${FULL_PUBLIC_API_HOST}images/article/${props.data.uri}`;
 });
 </script>
 
