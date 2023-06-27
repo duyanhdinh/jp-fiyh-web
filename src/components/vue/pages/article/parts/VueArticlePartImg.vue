@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import {FULL_PUBLIC_API_HOST, PUBLIC_API_HOST} from "@/constant/endpoint.constant";
+import {
+  FULL_PUBLIC_API_HOST,
+  PUBLIC_API_HOST,
+} from "@/constant/endpoint.constant";
 
 interface Props {
   data: any;
