@@ -3,47 +3,47 @@ on:
   push:
     branches:
       - master
-  repository_dispatch:
-    types: [ update_sitemap ]
+#  repository_dispatch:
+#    types: [ update_sitemap ]
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - name: Checkout Repo
-        uses: actions/checkout@master
-
-      # Build and push image
-      - name: Login to DockerHub
-        uses: docker/login-action@master
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Create and .env file
-        env:
-          PUBLIC_HOST: ${{ secrets.PUBLIC_HOST }}
-          PUBLIC_API_HOST: ${{ secrets.PUBLIC_API_HOST }}
-          FETCH_API_HOST: ${{ secrets.FETCH_API_HOST }}
-        run: |
-          touch .env
-          echo PUBLIC_HOST="$PUBLIC_HOST" >> .env
-          echo PUBLIC_API_HOST="$PUBLIC_API_HOST" >> .env
-          echo FETCH_API_HOST="$FETCH_API_HOST" >> .env
-
-      - name: Build docker image
-        run: >
-          docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:latest
-          -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:1.${{ github.run_number }}.0
-
-      - name: Push docker image
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }} --all-tags
-
-      # Request deploy eb
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.PAT }}
-          repository: ${{ secrets.DEPLOY_EB_REPO }}
-          event-type: build_application_fiyh
+#      - name: Checkout Repo
+#        uses: actions/checkout@master
+#
+#      # Build and push image
+#      - name: Login to DockerHub
+#        uses: docker/login-action@master
+#        with:
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_TOKEN }}
+#
+#      - name: Create and .env file
+#        env:
+#          PUBLIC_HOST: ${{ secrets.PUBLIC_HOST }}
+#          PUBLIC_API_HOST: ${{ secrets.PUBLIC_API_HOST }}
+#          FETCH_API_HOST: ${{ secrets.FETCH_API_HOST }}
+#        run: |
+#          touch .env
+#          echo PUBLIC_HOST="$PUBLIC_HOST" >> .env
+#          echo PUBLIC_API_HOST="$PUBLIC_API_HOST" >> .env
+#          echo FETCH_API_HOST="$FETCH_API_HOST" >> .env
+#
+#      - name: Build docker image
+#        run: >
+#          docker build . -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:latest
+#          -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }}:1.${{ github.run_number }}.0
+#
+#      - name: Push docker image
+#        run: |
+#          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_HUB_REPO }} --all-tags
+#
+#      # Request deploy eb
+#      - name: Repository Dispatch
+#        uses: peter-evans/repository-dispatch@v2
+#        with:
+#          token: ${{ secrets.PAT }}
+#          repository: ${{ secrets.DEPLOY_EB_REPO }}
+#          event-type: build_application_fiyh
