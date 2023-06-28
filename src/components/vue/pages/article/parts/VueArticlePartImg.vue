@@ -11,17 +11,22 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {});
 
 const imgUrl = computed<string>(() => {
-  if (props.data.uri.startsWith("https://")) {
+  if (props.data.uri?.startsWith("https://")) {
     return props.data.uri;
   }
 
-  return `${FULL_PUBLIC_API_HOST}images/article/${props.data.uri}`;
+  return `${FULL_PUBLIC_API_HOST}images/article/${props.data.uri ?? ""}`;
 });
 </script>
 
 <template>
   <div class="my-[12px]">
-    <img :src="imgUrl" :alt="data.text" :title="data.text" class="rounded-lg" />
+    <img
+      :src="imgUrl"
+      :alt="data.text"
+      :title="data.text"
+      class="rounded-lg max-h-[700px] m-auto"
+    />
     <div class="text-center italic text-[14px]">{{ data.text }}</div>
   </div>
 </template>
