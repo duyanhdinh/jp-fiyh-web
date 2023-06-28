@@ -7,7 +7,7 @@ import DateDataForm from "@vue-components/common/DateDataForm.vue";
     <DateDataForm />
     <div class="absolute top-[310px] text-[16px] text-center font-semibold">
       Analyze <span class="font-bold italic">Astrology</span> and
-      <span class="font-bold italic">Energies</span> to figure out who you are.
+      <span class="font-bold italic">Tarot</span> to figure out who you are.
     </div>
   </div>
 </template>
