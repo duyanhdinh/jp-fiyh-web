@@ -30,9 +30,9 @@ const props = withDefaults(defineProps<Props>(), {
         class="mb-[6px]"
         v-html="
           $t('result.energy.h2_title_raw', {
-            date: getDateCircle(props.next, 'to'),
+            date: getDateCircle(props.next, $t('common.between_date')),
             energy: data.energy,
-            energy_name: data.name,
+            energy_name: $t(`tarot.major_arcana.${data.energy}`),
           })
         "
       />

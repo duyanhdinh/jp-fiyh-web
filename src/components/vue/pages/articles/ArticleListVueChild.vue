@@ -4,6 +4,7 @@ import Minus from "@vue-components/icon/common/Minus.vue";
 import type { Ref } from "vue";
 import { ref } from "vue";
 import ArticleListVueLoop from "@vue-components/pages/articles/ArticleListVueLoop.vue";
+import { tranTitle } from "@helpers/lang.helper";
 
 interface Props {
   data: object;
@@ -29,9 +30,9 @@ const getDataLoop = (item: any) => item.child ?? item.sub;
       v-if="item.slug"
       :href="getHrefMenu(item)"
       class="cursor-pointer underline"
-      >{{ item.title }}</a
+      >{{ tranTitle(item.title) }}</a
     >
-    <div v-else>{{ item.title }}</div>
+    <div v-else>{{ tranTitle(item.title) }}</div>
 
     <div v-if="item.child" class="w-[20px] h-[20px] cursor-pointer">
       <Plus v-show="!isShowChild" @click="isShowChild = true" />

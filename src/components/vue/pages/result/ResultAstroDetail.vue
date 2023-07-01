@@ -37,8 +37,15 @@ const show: Ref<number> = ref(0);
         :class="[index === show ? 'z-20' : 'z-10']"
       >
         <h2 v-if="astrology[item.key]">
-          Your {{ item.key }} is:
-          <strong class="capitalize">{{ astrology[item.key].position }}</strong>
+          {{
+            $t(
+              "astrology.message.announcement",
+              $t(`astrology.position.${item.key}`)
+            )
+          }}
+          <strong class="capitalize">{{
+            $t(`astrology.sign.${astrology[item.key].position}`)
+          }}</strong>
         </h2>
         {{
           astrology[item.key]

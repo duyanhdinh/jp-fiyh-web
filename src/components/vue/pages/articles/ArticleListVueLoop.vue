@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ArticleListVueChild from "@vue-components/pages/articles/ArticleListVueChild.vue";
+import { tranTitle } from "@helpers/lang.helper";
 
 interface Props {
   data: object;
@@ -26,8 +27,10 @@ const getHrefArticle = (item: any) => {
       <ArticleListVueChild :data="data" :from="from" :item="item" />
     </template>
 
-    <li v-else class="underline lg:truncate" :title="item.title">
-      <a :href="getHrefArticle(item)" target="_blank">{{ item.title }}</a>
+    <li v-else class="underline lg:truncate" :title="tranTitle(item.title)">
+      <a :href="getHrefArticle(item)" target="_blank">{{
+        tranTitle(item.title)
+      }}</a>
     </li>
   </ul>
 </template>

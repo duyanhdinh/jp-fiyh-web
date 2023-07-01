@@ -1,7 +1,7 @@
 import type { App } from "vue";
 import { createPinia } from "pinia";
 import i18nPlugin from "@vue-plugins/i18n.vue-plugin";
-import { dictionary } from "@dictionary";
+import { dictionary } from "@lang";
 import { Dropdown, Menu } from "floating-vue";
 // @ts-ignore
 import { VueperSlides, VueperSlide } from "vueperslides";

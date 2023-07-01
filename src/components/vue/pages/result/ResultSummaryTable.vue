@@ -32,11 +32,11 @@ const getClassesScore = (score: number) => {
         v-for="(item, index) of properties"
         :key="index"
         :data="item"
-        :title="item.name"
+        :title="$t(`properties.${item.key}`)"
         class="w-[80px] h-[32px] border border-[#BFBFBF] pt-[3px] text-[15px] font-medium text-center truncate capitalize"
         :class="[`text-[${item.color.dark}]`]"
       >
-        {{ item.name }}
+        {{ $t(`properties.${item.key}`) }}
       </div>
     </div>
     <div

@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import ResultSummary from "@vue-components/pages/result/ResultSummary.vue";
 import ResultAstro from "@vue-components/pages/result/ResultAstro.vue";
 import ResultEnergy from "@vue-components/pages/result/ResultEnergy.vue";
-import { dictionary } from "@dictionary";
+import { dictionary } from "@lang";
 import { apiDiscoverGetResult } from "../../api/discover/discover.api";
 import { getLocaleDateString } from "@helpers/date.helper";
 import DataCalc from "@astro-components/layouts/DataCalc.astro";
@@ -32,8 +32,7 @@ const date = getLocaleDateString(new Date(data.birth_time), {
 const meta = [
   {
     name: "description",
-    content:
-      "Analyze Astrology and Tarot/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
+    content: dictionary.meta.result,
   },
   {
     name: "canonical",

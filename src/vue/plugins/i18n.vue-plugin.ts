@@ -1,12 +1,12 @@
 export default {
-  install: (app, options) => {
+  install: (app: any, options: any) => {
     // inject a globally available $translate() method
-    app.config.globalProperties.$t = (...arg) => {
+    app.config.globalProperties.$t = (...arg: any[]) => {
       // retrieve a nested property in `options`
       // using `key` as the path
       const key = arg[0];
 
-      const text = key.split(".").reduce((o, i) => {
+      const text = key.split(".").reduce((o: any, i: any) => {
         // if (args.length) {
         //     console.log(args, o, i)
         // }

@@ -5,10 +5,10 @@ import DateDataForm from "@vue-components/common/DateDataForm.vue";
 <template>
   <div class="relative">
     <DateDataForm />
-    <div class="absolute top-[310px] text-[16px] text-center font-semibold">
-      Analyze <span class="font-bold italic">Astrology</span> and
-      <span class="font-bold italic">Tarot</span> to figure out who you are.
-    </div>
+    <div
+      class="absolute top-[310px] text-[14px] text-center font-normal"
+      v-html="$t('site.page_ads.message_html')"
+    />
   </div>
 </template>
 

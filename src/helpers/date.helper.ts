@@ -1,10 +1,10 @@
 const CIRCLE_TIME: number = 3942000000;
-
+import { dictionary } from "@lang";
 export const getLocaleDateString = (
   date: Date,
   options: Intl.DateTimeFormatOptions = {}
 ): string =>
-  date.toLocaleDateString("en-US", {
+  date.toLocaleDateString(dictionary.locale, {
     weekday: "long",
     era: "long",
     year: "numeric",
@@ -52,19 +52,19 @@ export const getDateCircle = (
     case 0:
       return (
         dateMMDDYYYY(new Date(new Date().getFullYear() + div8, 0, 1)) +
-        ` ${slash} ` +
+        `${slash}` +
         dateMMDDYYYY(new Date(startTime + (sum + 1) * CIRCLE_TIME))
       );
     case 7:
       return (
         dateMMDDYYYY(new Date(startTime + sum * CIRCLE_TIME)) +
-        ` ${slash} ` +
+        `${slash}` +
         dateMMDDYYYY(new Date(new Date().getFullYear() + div8, 11, 31))
       );
     default:
       return (
         dateMMDDYYYY(new Date(startTime + sum * CIRCLE_TIME)) +
-        ` ${slash} ` +
+        `${slash}` +
         dateMMDDYYYY(new Date(startTime + (sum + 1) * CIRCLE_TIME))
       );
   }

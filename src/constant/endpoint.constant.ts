@@ -1,7 +1,7 @@
 export const FETCH_API_HOST =
   process.env.FETCH_API_HOST ?? import.meta.env.PUBLIC_API_HOST;
 export const PUBLIC_API_HOST = import.meta.env.PUBLIC_API_HOST;
-const BASE_API_VER = "/v1/";
+const BASE_API_VER = "/";
 export const FULL_PUBLIC_API_HOST = PUBLIC_API_HOST + BASE_API_VER;
 
 const BASE_API_ARTICLE = BASE_API_VER + "article";

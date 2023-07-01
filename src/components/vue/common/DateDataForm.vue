@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted, onUnmounted } from "vue";
+import { computed, inject, onMounted, onUnmounted } from "vue";
 import { storeToRefs } from "pinia";
 import Selected from "@vue-components/common/Selected.vue";
 import { year, month, day, hour, min } from "@/_content/date-time";
@@ -16,10 +16,18 @@ const {
 } = storeToRefs(birthStore);
 const canSend = computed<boolean>(() => birthStore.isDataFilled);
 const hrefResult = computed<string>(() => birthStore.hrefResult);
+const i18n: any = inject("i18n");
 
 const send = async (e: any) => {
   if (!canSend.value) e.preventDefault();
 };
+
+const monthLocale = computed<object[]>(() =>
+  month.map((item) => ({
+    ...item,
+    title: i18n.month[item.value.toString()].short,
+  }))
+);
 
 onMounted(() => {
   birthStore.init();
@@ -48,7 +56,7 @@ onUnmounted(() => {
       <div class="w-full h-auto mx-[16px] flex">
         <Selected
           class="w-[64px] h-[32px] mr-[15px]"
-          :data="month"
+          :data="monthLocale"
           :model-value="birthMonth"
           @update:modelValue="(newV) => (birthMonth = newV)"
         />

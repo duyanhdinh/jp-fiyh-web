@@ -64,7 +64,7 @@ const yearGenerator = (): SelectObject[] => {
 export const year: SelectObject[] = yearGenerator();
 
 const hourGenerator = (): SelectObject[] => {
-  let hour: SelectObject[] = [{ value: "u", title: "??? unknown" }];
+  let hour: SelectObject[] = [{ value: "u", title: "???" }];
   let minHour: Number = 0;
   let maxHour: Number = 23;
 
@@ -72,7 +72,7 @@ const hourGenerator = (): SelectObject[] => {
     hour.push({
       value: i,
       title:
-        i < 12 ? `${i} [am]` : i > 12 ? `${i} [${i - 12} pm]` : `${i} [noon]`,
+        i < 12 ? `${i} (a.m.)` : i > 12 ? `${i} (${i - 12} p.m.)` : `${i} (12 p.m.)`,
     });
   }
 
