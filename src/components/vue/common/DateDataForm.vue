@@ -53,7 +53,7 @@ onUnmounted(() => {
       >
         {{ $t("date_data_form.birth_date_time") }}
       </div>
-      <div class="w-full h-auto px-[16px] flex">
+      <div class="w-full h-auto px-[16px] flex justify-between">
         <Selected
           class="w-[64px] h-[32px] mr-[15px]"
           :data="monthLocale"
@@ -104,6 +104,7 @@ onUnmounted(() => {
           :data="birthStore.listCountry"
           :model-value="birthCountry"
           @update:modelValue="birthStore.getCountry"
+          @click="birthStore.renderListCountry"
         />
       </div>
       <div class="w-full h-auto px-[16px] flex justify-between">

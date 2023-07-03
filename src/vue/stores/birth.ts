@@ -58,10 +58,7 @@ export const useBirthStore = defineStore("birth", () => {
       geoCity.value = JSON.parse(response.data);
     }
   };
-  const listCountry = sortArrByKeyString(
-    objToArrSelectObject(country),
-    "title"
-  );
+  const listCountry: Ref<object[]> = ref([]);
   const listCity = computed<object[]>(() =>
     geoCity.value && geoCity.value[birthCountry.value]
       ? sortArrByKeyString(geoCity.value[birthCountry.value], "title")
@@ -96,6 +93,13 @@ export const useBirthStore = defineStore("birth", () => {
     resetCityValue();
   };
 
+  const renderListCountry = () => {
+    listCountry.value = sortArrByKeyString(
+      objToArrSelectObject(country),
+      "title"
+    );
+  };
+
   const getBirthGeo = (cityId: number): void => {
     birthCity.value = cityId;
     let city: { lat: any; lng: any } = geoCity.value[birthCountry.value].find(
@@ -124,5 +128,6 @@ export const useBirthStore = defineStore("birth", () => {
     getCountry,
     getBirthGeo,
     hrefResult,
+    renderListCountry,
   };
 });
