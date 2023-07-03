@@ -63,7 +63,7 @@ export const useBirthStore = defineStore("birth", () => {
     "title"
   );
   const listCity = computed<object[]>(() =>
-    geoCity.value
+    geoCity.value && geoCity.value[birthCountry.value]
       ? sortArrByKeyString(geoCity.value[birthCountry.value], "title")
       : []
   );

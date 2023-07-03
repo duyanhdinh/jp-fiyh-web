@@ -53,7 +53,7 @@ onUnmounted(() => {
       >
         {{ $t("date_data_form.birth_date_time") }}
       </div>
-      <div class="w-full h-auto mx-[16px] flex">
+      <div class="w-full h-auto px-[16px] flex">
         <Selected
           class="w-[64px] h-[32px] mr-[15px]"
           :data="monthLocale"
@@ -73,7 +73,7 @@ onUnmounted(() => {
           @update:modelValue="(newV) => (birthYear = newV)"
         />
       </div>
-      <div class="w-full h-auto mx-[16px] flex space-x-[15px]">
+      <div class="w-full h-auto px-[16px] flex space-x-[15px] justify-between">
         <Selected
           class="w-[102px] h-[32px]"
           :data="hour"
