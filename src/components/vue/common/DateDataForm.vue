@@ -31,6 +31,7 @@ const monthLocale = computed<object[]>(() =>
 
 onMounted(() => {
   birthStore.init();
+  if (birthCountry.value !== '') birthStore.renderListCountry()
 });
 
 onUnmounted(() => {
