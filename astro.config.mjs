@@ -7,7 +7,7 @@ import vue from "@astrojs/vue";
 import sitemap from "@astrojs/sitemap";
 import {generalUrlSiteMap} from "./sitemap/genera-sitemap-ssr";
 
-const customPages = await generalUrlSiteMap();
+const customPages = async (file) => await generalUrlSiteMap(file);
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,14 +21,14 @@ export default defineConfig({
   },
   output: "server",
   adapter: cloudflare(),
-  site: "https://fateinyourhands.com",
+  site: process.env.PUBLIC_HOST,
   integrations: [
     tailwind(),
     vue({
       appEntrypoint: "/src/vue/main",
     }),
     sitemap({
-      customPages: customPages
+      customPages: await customPages(process.env.SITEMAP_SOURCE)
     }),
   ],
 });

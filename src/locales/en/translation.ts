@@ -22,6 +22,7 @@ export const en: object = {
     },
   },
   meta: {
+    home: "Get your free birth chart and tarot reading today! Our astrology calculator provides you with a unique cosmic energy reading that reveals how the planets influence your life path, personality, and daily decisions. Discover your true self with our free tarot and astrology calculator site.",
     menu: "List articles about Astrology and Tarot.",
     result:
       "Analyze Astrology and Tarot/Matrix of Destiny to figure out who you are. Fate in your hands have got own research to give you good suggestions.",
