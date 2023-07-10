@@ -25,11 +25,11 @@ onUnmounted(() => {
     <!-- This will be the popover reference (for the events and position) -->
     <button class="w-full h-full">
       <a
-        class="flex items-center lg:text-[20px] text-[16px] capitalize hover:underline font-semibold"
+        class="flex items-center lg:text-[18px] text-[16px] capitalize hover:underline font-semibold"
         href="/articles"
       >
         {{ i18n.header.menu.articles.title }}
-        <ArrowDown class="lg:w-[14px] lg:h-[14px] w-[12px] h-[12px] ml-[8px]" />
+        <ArrowDown class="lg:w-[14px] lg:h-[14px] w-[12px] h-[12px] ml-[4px]" />
       </a>
     </button>
 

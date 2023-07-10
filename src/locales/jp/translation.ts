@@ -1,6 +1,10 @@
 export const jp: object = {
   language: "ja",
   locale: "ja-JP",
+  locales: {
+    en: "en",
+    ja: "ja",
+  },
   common: {
     between_date: "から",
     article: "記事",
@@ -12,8 +16,8 @@ export const jp: object = {
     common: "共通",
   },
   site: {
-    name: "手の中の運命（Fate in your hands）",
-    title: "手の中の運命（Fate in your hands）",
+    name: "手の中の運命",
+    title: "手の中の運命",
     recommend_ads: {
       title: "あなたにお勧め",
     },
@@ -34,6 +38,9 @@ export const jp: object = {
     menu: {
       articles: {
         title: "記事",
+      },
+      locales: {
+        title: "あなたの地域のウェブサイトを選択してください",
       },
     },
   },

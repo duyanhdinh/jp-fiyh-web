@@ -1,6 +1,10 @@
 export const en: object = {
   language: "en",
   locale: "en-US",
+  locales: {
+    en: "en",
+    ja: "ja",
+  },
   common: {
     between_date: " to ",
     article: "article",
@@ -34,6 +38,9 @@ export const en: object = {
     menu: {
       articles: {
         title: "articles",
+      },
+      locales: {
+        title: "Select your region website",
       },
     },
   },
