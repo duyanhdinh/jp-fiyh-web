@@ -22,7 +22,7 @@ export const articlesListHandles = async (Astro: any) => {
 
     if (data === undefined) return data;
 
-    resource = path.replaceAll("-", " ");
+    resource = path.replaceAll("-", "_");
 
     path = paths.shift();
   }

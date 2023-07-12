@@ -30,7 +30,7 @@ if (statusCode === HTTP_STATUS_CODE.SUCCESS) {
   ];
 }
 
-const breadCrumb = Astro.url.pathname.slice(1).split("/");
+const breadCrumb = Astro.url.pathname.slice(1).replaceAll("-", "_").split("/");
 breadCrumb.pop();
 ---
 

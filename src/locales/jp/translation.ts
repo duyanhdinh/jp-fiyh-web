@@ -12,7 +12,7 @@ export const jp: object = {
     astrology: "占星術",
     planet: "惑星",
     zodiac: "黄道十二星座",
-    major_arcana: "大アルカナ",
+    major_arcana: "タロット",
     common: "共通",
   },
   site: {

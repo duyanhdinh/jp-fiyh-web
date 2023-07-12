@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArrowRight from "@vue-components/icon/common/ArrowRight.vue";
+import { keyToPosition } from "@helpers/tarot.helper";
 
 interface Props {
   data: any;
@@ -24,7 +24,7 @@ const getHref = (data: any, index: any) => {
 
 <template>
   <div
-    class="flex w-full font-bold text-[18px] my-[6px] bg-clip-text text-transparent bg-gradient-to-r from-[#4180F4] to-[#CD5DCA]"
+    class="flex w-full font-bold text-[14px] lg:text-[18px] my-[6px] bg-clip-text text-transparent bg-gradient-to-r from-[#4180F4] to-[#CD5DCA]"
   >
     <div
       v-for="(item, index) in data"
@@ -32,7 +32,13 @@ const getHref = (data: any, index: any) => {
       class="mr-[4px] flex capitalize items-center"
     >
       <a :href="getHref(data, index)" class="flex">
-        {{ item }}
+        {{
+          $t(`common.${item}`) ??
+          $t(`properties.${item}`) ??
+          $t(`astrology.position.${item}`) ??
+          $t(`astrology.sign.${item}`) ??
+          $t(`tarot.major_arcana.${keyToPosition(item)}`)
+        }}
         <div v-if="index !== data.length - 1" class="mx-[4px]">></div>
       </a>
     </div>
