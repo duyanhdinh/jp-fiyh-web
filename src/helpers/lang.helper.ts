@@ -1,4 +1,5 @@
 import { dictionary } from "@dictionary/index";
+import { keyToPosition } from "@helpers/tarot.helper";
 
 export const tranTitle = (title: string) => {
   const arr = [
@@ -14,6 +15,11 @@ export const tranTitle = (title: string) => {
       .map((item) => {
         if (Object.keys(item).includes(title)) {
           return item[title];
+        }
+
+        let t = keyToPosition(title);
+        if (t !== undefined && Object.keys(item).includes(t)) {
+          return item[t];
         }
 
         return null;

@@ -11,7 +11,7 @@ const getHref = (data: any, index: any) => {
   data.forEach((item: string, itemIndex: any) => {
     if (itemIndex <= index) {
       if (itemIndex) {
-        href += `/list-${item.replaceAll('_', '-')}`;
+        href += `/list-${item.replaceAll("_", "-")}`;
       } else {
         href += `/${item}s`;
       }
