@@ -51,8 +51,8 @@ export const month: SelectObject[] = [
 
 const yearGenerator = (): SelectObject[] => {
   let year: SelectObject[] = [];
-  let minYear: Number = 1900;
-  let maxYear: Number = 2050;
+  let minYear: Number = 1930;
+  let maxYear: Number = 2030;
 
   for (let i: any = minYear; i <= maxYear; i++) {
     year.push({ value: i, title: i.toString() });
