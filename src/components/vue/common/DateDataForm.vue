@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { computed, inject, onMounted, onUnmounted } from "vue";
+import {computed, inject, nextTick, onMounted, onUnmounted} from "vue";
+import { promiseTimeout } from '@vueuse/core'
 import { storeToRefs } from "pinia";
 import Selected from "@vue-components/common/Selected.vue";
 import { year, month, day, hour, min } from "@/_content/date-time";
@@ -13,6 +14,7 @@ const {
   birthMin,
   birthCountry,
   birthCity,
+  listCountry
 } = storeToRefs(birthStore);
 const canSend = computed<boolean>(() => birthStore.isDataFilled);
 const hrefResult = computed<string>(() => birthStore.hrefResult);
@@ -29,9 +31,14 @@ const monthLocale = computed<object[]>(() =>
   }))
 );
 
-onMounted(() => {
-  birthStore.init();
-  if (birthCountry.value !== "") birthStore.renderListCountry();
+onMounted(async () => {
+  await birthStore.init();
+  if (!listCountry.value.length || birthCountry.value !== "") {
+    if (!listCountry.value.length) {
+      await promiseTimeout(200)
+    }
+    birthStore.renderListCountry();
+  }
 });
 
 onUnmounted(() => {
@@ -105,7 +112,6 @@ onUnmounted(() => {
           :data="birthStore.listCountry"
           :model-value="birthCountry"
           @update:modelValue="birthStore.getCountry"
-          @click="birthStore.renderListCountry"
         />
       </div>
       <div class="w-full h-auto px-[16px] flex justify-between">
