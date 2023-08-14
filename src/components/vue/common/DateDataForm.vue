@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import {computed, inject, nextTick, onMounted, onUnmounted} from "vue";
-import { promiseTimeout } from '@vueuse/core'
+import { computed, inject, onMounted, onUnmounted } from "vue";
 import { storeToRefs } from "pinia";
 import Selected from "@vue-components/common/Selected.vue";
 import { year, month, day, hour, min } from "@/_content/date-time";
@@ -14,7 +13,6 @@ const {
   birthMin,
   birthCountry,
   birthCity,
-  listCountry
 } = storeToRefs(birthStore);
 const canSend = computed<boolean>(() => birthStore.isDataFilled);
 const hrefResult = computed<string>(() => birthStore.hrefResult);
@@ -31,14 +29,9 @@ const monthLocale = computed<object[]>(() =>
   }))
 );
 
-onMounted(async () => {
-  await birthStore.init();
-  if (!listCountry.value.length || birthCountry.value !== "") {
-    if (!listCountry.value.length) {
-      await promiseTimeout(200)
-    }
-    birthStore.renderListCountry();
-  }
+onMounted(() => {
+  birthStore.init();
+  birthStore.renderListCountry();
 });
 
 onUnmounted(() => {
