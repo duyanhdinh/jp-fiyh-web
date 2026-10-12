@@ -1,14 +1,14 @@
-name: Build and push docker image and request deploy to EB
-on:
-  push:
-    branches:
-      - master
-#  repository_dispatch:
-#    types: [ update_sitemap ]
-jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    steps:
+# name: Build and push docker image and request deploy to EB
+# on:
+#   push:
+#     branches:
+#       - master
+# #  repository_dispatch:
+# #    types: [ update_sitemap ]
+# jobs:
+#   build_and_deploy:
+#     runs-on: ubuntu-latest
+#     steps:
       # Checkout
 #      - name: Checkout Repo
 #        uses: actions/checkout@master
